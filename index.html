@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="ja">
-<head>
-<meta charset="UTF-8">
+<!-- saved from url=(0060)file:///C:/Users/hta01/Dropbox/PC%20(2)/Downloads/index.html -->
+<html lang="ja"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <title>高橋厩舎管理馬一覧</title>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css">
+<link rel="stylesheet" href="./高橋厩舎管理馬一覧_files/tabler-icons.min.css">
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
 body{font-family:'Hiragino Kaku Gothic ProN','Hiragino Sans','Noto Sans JP',sans-serif;background:#f0f0ec;min-height:100vh;display:flex;justify-content:center;}
@@ -72,21 +72,310 @@ body{font-family:'Hiragino Kaku Gothic ProN','Hiragino Sans','Noto Sans JP',sans
 <body>
 <div class="app">
   <div class="hdr">
-    <h1>🐎 高橋厩舎管理馬一覧 <span class="sync-badge" id="sync-badge">同期中...</span></h1>
+    <h1>🐎 高橋厩舎管理馬一覧 <span class="sync-badge" id="sync-badge">✓ 同期済み</span></h1>
     <p>南関東競馬 ｜ 高橋宏征調教師</p>
   </div>
   <div class="tabs">
-    <button class="tab active" onclick="goTab('horses')" id="tab-horses"><span style="font-size:17px;display:block;margin-bottom:2px">🐴</span>馬一覧</button>
-    <button class="tab" onclick="goTab('daily')" id="tab-daily"><span style="font-size:17px;display:block;margin-bottom:2px">☀️</span>今日</button>
-    <button class="tab" onclick="goTab('training')" id="tab-training"><span style="font-size:17px;display:block;margin-bottom:2px">🏃</span>調教</button>
-    <button class="tab" onclick="goTab('feed')" id="tab-feed"><span style="font-size:17px;display:block;margin-bottom:2px">🌾</span>飼料</button>
-    <button class="tab" onclick="goTab('photos')" id="tab-photos"><span style="font-size:17px;display:block;margin-bottom:2px">📷</span>写真</button>
-    <button class="tab" onclick="goTab('record')" id="tab-record"><span style="font-size:17px;display:block;margin-bottom:2px">✏️</span>記録追加</button>
-    <button class="tab" onclick="goTab('newreg')" id="tab-newreg"><span style="font-size:17px;display:block;margin-bottom:2px">➕</span>新規登録</button>
-    <button class="tab" onclick="goTab('retired')" id="tab-retired"><span style="font-size:17px;display:block;margin-bottom:2px">👤</span>退厩馬</button>
-    <button class="tab" onclick="goTab('member')" id="tab-member"><span style="font-size:17px;display:block;margin-bottom:2px">👥</span>メンバー</button>
+    <button class="tab active" onclick="goTab(&#39;horses&#39;)" id="tab-horses"><span style="font-size:17px;display:block;margin-bottom:2px">🐴</span>馬一覧</button>
+    <button class="tab" onclick="goTab(&#39;daily&#39;)" id="tab-daily"><span style="font-size:17px;display:block;margin-bottom:2px">☀️</span>今日</button>
+    <button class="tab" onclick="goTab(&#39;training&#39;)" id="tab-training"><span style="font-size:17px;display:block;margin-bottom:2px">🏃</span>調教</button>
+    <button class="tab" onclick="goTab(&#39;feed&#39;)" id="tab-feed"><span style="font-size:17px;display:block;margin-bottom:2px">🌾</span>飼料</button>
+    <button class="tab" onclick="goTab(&#39;photos&#39;)" id="tab-photos"><span style="font-size:17px;display:block;margin-bottom:2px">📷</span>写真</button>
+    <button class="tab" onclick="goTab(&#39;record&#39;)" id="tab-record"><span style="font-size:17px;display:block;margin-bottom:2px">✏️</span>記録追加</button>
+    <button class="tab" onclick="goTab(&#39;newreg&#39;)" id="tab-newreg"><span style="font-size:17px;display:block;margin-bottom:2px">➕</span>新規登録</button>
+    <button class="tab" onclick="goTab(&#39;retired&#39;)" id="tab-retired"><span style="font-size:17px;display:block;margin-bottom:2px">👤</span>退厩馬</button>
+    <button class="tab" onclick="goTab(&#39;member&#39;)" id="tab-member"><span style="font-size:17px;display:block;margin-bottom:2px">👥</span>メンバー</button>
   </div>
-  <div class="cnt" id="main-cnt"><div class="loading"><i class="ti ti-loader"></i>データを読み込み中...</div></div>
+  <div class="cnt" id="main-cnt"><div class="sec">在厩馬 17頭</div><div class="card" style="cursor:pointer" onclick="openHorse(&#39;3ZCer6bx2GG4wLwR4g3a&#39;)">
+      <div style="display:flex;align-items:center;gap:10px">
+        <div style="width:50px;height:50px;border-radius:8px;background:#E3F2FD;display:flex;align-items:center;justify-content:center;font-size:26px;flex-shrink:0">🐎</div>
+        <div style="flex:1;min-width:0">
+          <div style="font-size:15px;font-weight:600;color:#111">スマイルフェリス</div>
+          <div style="font-size:11px;color:#888;margin-top:1px">5歳 / 牡 / 鹿毛</div>
+          <div style="margin-top:4px;display:flex;gap:4px;flex-wrap:wrap">
+            <span class="badge ok">良好</span>
+            <span class="badge badge-s">入厩</span>
+          </div>
+        </div>
+        <div style="text-align:right;flex-shrink:0">
+          <div style="font-size:15px;font-weight:600;color:#111">486kg</div>
+          <div style="font-size:11px;color:#C62828">-1kg</div>
+        </div>
+        <i class="ti ti-chevron-right" style="font-size:16px;color:#ccc;flex-shrink:0"></i>
+      </div>
+    </div><div class="card" style="cursor:pointer" onclick="openHorse(&#39;43f038y45jbnHeyNISrn&#39;)">
+      <div style="display:flex;align-items:center;gap:10px">
+        <div style="width:50px;height:50px;border-radius:8px;background:#E3F2FD;display:flex;align-items:center;justify-content:center;font-size:26px;flex-shrink:0">🐎</div>
+        <div style="flex:1;min-width:0">
+          <div style="font-size:15px;font-weight:600;color:#111">ウワサノアノコ</div>
+          <div style="font-size:11px;color:#888;margin-top:1px">6歳 / 牝 / 鹿毛</div>
+          <div style="margin-top:4px;display:flex;gap:4px;flex-wrap:wrap">
+            <span class="badge ok">良好</span>
+            <span class="badge badge-s">入厩</span>
+          </div>
+        </div>
+        <div style="text-align:right;flex-shrink:0">
+          <div style="font-size:15px;font-weight:600;color:#111">422kg</div>
+          <div style="font-size:11px;color:#2E7D32">+1kg</div>
+        </div>
+        <i class="ti ti-chevron-right" style="font-size:16px;color:#ccc;flex-shrink:0"></i>
+      </div>
+    </div><div class="card" style="cursor:pointer" onclick="openHorse(&#39;4jP8iC1lKufU8d728rCT&#39;)">
+      <div style="display:flex;align-items:center;gap:10px">
+        <div style="width:50px;height:50px;border-radius:8px;background:#E3F2FD;display:flex;align-items:center;justify-content:center;font-size:26px;flex-shrink:0">🐎</div>
+        <div style="flex:1;min-width:0">
+          <div style="font-size:15px;font-weight:600;color:#111">ミツカネエリーズ</div>
+          <div style="font-size:11px;color:#888;margin-top:1px">5歳 / 牝 / 鹿毛</div>
+          <div style="margin-top:4px;display:flex;gap:4px;flex-wrap:wrap">
+            <span class="badge ok">良好</span>
+            <span class="badge badge-s">入厩</span>
+          </div>
+        </div>
+        <div style="text-align:right;flex-shrink:0">
+          <div style="font-size:15px;font-weight:600;color:#111">438kg</div>
+          <div style="font-size:11px;color:#C62828">-1kg</div>
+        </div>
+        <i class="ti ti-chevron-right" style="font-size:16px;color:#ccc;flex-shrink:0"></i>
+      </div>
+    </div><div class="card" style="cursor:pointer" onclick="openHorse(&#39;AijmEmMnbYYVROX44Ehb&#39;)">
+      <div style="display:flex;align-items:center;gap:10px">
+        <div style="width:50px;height:50px;border-radius:8px;background:#E3F2FD;display:flex;align-items:center;justify-content:center;font-size:26px;flex-shrink:0">🐎</div>
+        <div style="flex:1;min-width:0">
+          <div style="font-size:15px;font-weight:600;color:#111">レイヴオン</div>
+          <div style="font-size:11px;color:#888;margin-top:1px">4歳 / 牡 / 鹿毛</div>
+          <div style="margin-top:4px;display:flex;gap:4px;flex-wrap:wrap">
+            <span class="badge ok">良好</span>
+            <span class="badge badge-s">入厩</span>
+          </div>
+        </div>
+        <div style="text-align:right;flex-shrink:0">
+          <div style="font-size:15px;font-weight:600;color:#111">480kg</div>
+          <div style="font-size:11px;color:#C62828">-1kg</div>
+        </div>
+        <i class="ti ti-chevron-right" style="font-size:16px;color:#ccc;flex-shrink:0"></i>
+      </div>
+    </div><div class="card" style="cursor:pointer" onclick="openHorse(&#39;DphNo0BYRvu32E8HRleV&#39;)">
+      <div style="display:flex;align-items:center;gap:10px">
+        <div style="width:50px;height:50px;border-radius:8px;background:#E3F2FD;display:flex;align-items:center;justify-content:center;font-size:26px;flex-shrink:0">🐎</div>
+        <div style="flex:1;min-width:0">
+          <div style="font-size:15px;font-weight:600;color:#111">フライングロッド</div>
+          <div style="font-size:11px;color:#888;margin-top:1px">5歳 / 牡 / 栗毛</div>
+          <div style="margin-top:4px;display:flex;gap:4px;flex-wrap:wrap">
+            <span class="badge ok">良好</span>
+            <span class="badge badge-s">入厩</span>
+          </div>
+        </div>
+        <div style="text-align:right;flex-shrink:0">
+          <div style="font-size:15px;font-weight:600;color:#111">489kg</div>
+          <div style="font-size:11px;color:#2E7D32">+1kg</div>
+        </div>
+        <i class="ti ti-chevron-right" style="font-size:16px;color:#ccc;flex-shrink:0"></i>
+      </div>
+    </div><div class="card" style="cursor:pointer" onclick="openHorse(&#39;FngZcFeCaRrFbbR5SxE7&#39;)">
+      <div style="display:flex;align-items:center;gap:10px">
+        <div style="width:50px;height:50px;border-radius:8px;background:#E3F2FD;display:flex;align-items:center;justify-content:center;font-size:26px;flex-shrink:0">🐎</div>
+        <div style="flex:1;min-width:0">
+          <div style="font-size:15px;font-weight:600;color:#111">ケイティキセキ</div>
+          <div style="font-size:11px;color:#888;margin-top:1px">5歳 / 牝 / 鹿毛</div>
+          <div style="margin-top:4px;display:flex;gap:4px;flex-wrap:wrap">
+            <span class="badge ok">良好</span>
+            <span class="badge badge-s">入厩</span>
+          </div>
+        </div>
+        <div style="text-align:right;flex-shrink:0">
+          <div style="font-size:15px;font-weight:600;color:#111">443kg</div>
+          <div style="font-size:11px;color:#2E7D32">+1kg</div>
+        </div>
+        <i class="ti ti-chevron-right" style="font-size:16px;color:#ccc;flex-shrink:0"></i>
+      </div>
+    </div><div class="card" style="cursor:pointer" onclick="openHorse(&#39;IFYcOyA3TIASUhg6unYV&#39;)">
+      <div style="display:flex;align-items:center;gap:10px">
+        <div style="width:50px;height:50px;border-radius:8px;background:#E3F2FD;display:flex;align-items:center;justify-content:center;font-size:26px;flex-shrink:0">🐎</div>
+        <div style="flex:1;min-width:0">
+          <div style="font-size:15px;font-weight:600;color:#111">クツシタオトシタ</div>
+          <div style="font-size:11px;color:#888;margin-top:1px">3歳 / 牝 / 鹿毛</div>
+          <div style="margin-top:4px;display:flex;gap:4px;flex-wrap:wrap">
+            <span class="badge ok">良好</span>
+            <span class="badge badge-s">入厩</span>
+          </div>
+        </div>
+        <div style="text-align:right;flex-shrink:0">
+          <div style="font-size:15px;font-weight:600;color:#111">440kg</div>
+          <div style="font-size:11px;color:#C62828">-1kg</div>
+        </div>
+        <i class="ti ti-chevron-right" style="font-size:16px;color:#ccc;flex-shrink:0"></i>
+      </div>
+    </div><div class="card" style="cursor:pointer" onclick="openHorse(&#39;JWELUy23NqrykZ96UOZk&#39;)">
+      <div style="display:flex;align-items:center;gap:10px">
+        <div style="width:50px;height:50px;border-radius:8px;background:#E3F2FD;display:flex;align-items:center;justify-content:center;font-size:26px;flex-shrink:0">🐎</div>
+        <div style="flex:1;min-width:0">
+          <div style="font-size:15px;font-weight:600;color:#111">プレストジャンヌ</div>
+          <div style="font-size:11px;color:#888;margin-top:1px">3歳 / 牝 / 鹿毛</div>
+          <div style="margin-top:4px;display:flex;gap:4px;flex-wrap:wrap">
+            <span class="badge ok">良好</span>
+            <span class="badge badge-s">入厩</span>
+          </div>
+        </div>
+        <div style="text-align:right;flex-shrink:0">
+          <div style="font-size:15px;font-weight:600;color:#111">434kg</div>
+          <div style="font-size:11px;color:#C62828">-1kg</div>
+        </div>
+        <i class="ti ti-chevron-right" style="font-size:16px;color:#ccc;flex-shrink:0"></i>
+      </div>
+    </div><div class="card" style="cursor:pointer" onclick="openHorse(&#39;Rq8WlAV4sQAlq9cm3N8P&#39;)">
+      <div style="display:flex;align-items:center;gap:10px">
+        <div style="width:50px;height:50px;border-radius:8px;background:#E3F2FD;display:flex;align-items:center;justify-content:center;font-size:26px;flex-shrink:0">🐎</div>
+        <div style="flex:1;min-width:0">
+          <div style="font-size:15px;font-weight:600;color:#111">プレストルーチェ</div>
+          <div style="font-size:11px;color:#888;margin-top:1px">令9歳 / 牡 / 鹿毛</div>
+          <div style="margin-top:4px;display:flex;gap:4px;flex-wrap:wrap">
+            <span class="badge warn">要観察</span>
+            <span class="badge badge-s">入厩</span>
+          </div>
+        </div>
+        <div style="text-align:right;flex-shrink:0">
+          <div style="font-size:15px;font-weight:600;color:#111">499kg</div>
+          <div style="font-size:11px;color:#2E7D32">+1kg</div>
+        </div>
+        <i class="ti ti-chevron-right" style="font-size:16px;color:#ccc;flex-shrink:0"></i>
+      </div>
+    </div><div class="card" style="cursor:pointer" onclick="openHorse(&#39;U6D5fXnUaxCwZJGqXW8W&#39;)">
+      <div style="display:flex;align-items:center;gap:10px">
+        <div style="width:50px;height:50px;border-radius:8px;background:#E3F2FD;display:flex;align-items:center;justify-content:center;font-size:26px;flex-shrink:0">🐎</div>
+        <div style="flex:1;min-width:0">
+          <div style="font-size:15px;font-weight:600;color:#111">リンテンリュウ</div>
+          <div style="font-size:11px;color:#888;margin-top:1px">4歳 / 牡 / 黒鹿毛</div>
+          <div style="margin-top:4px;display:flex;gap:4px;flex-wrap:wrap">
+            <span class="badge ok">良好</span>
+            <span class="badge badge-s">入厩</span>
+          </div>
+        </div>
+        <div style="text-align:right;flex-shrink:0">
+          <div style="font-size:15px;font-weight:600;color:#111">487kg</div>
+          <div style="font-size:11px;color:#2E7D32">+1kg</div>
+        </div>
+        <i class="ti ti-chevron-right" style="font-size:16px;color:#ccc;flex-shrink:0"></i>
+      </div>
+    </div><div class="card" style="cursor:pointer" onclick="openHorse(&#39;VoszzSnuQfqV4P3En8Rp&#39;)">
+      <div style="display:flex;align-items:center;gap:10px">
+        <div style="width:50px;height:50px;border-radius:8px;background:#E3F2FD;display:flex;align-items:center;justify-content:center;font-size:26px;flex-shrink:0">🐎</div>
+        <div style="flex:1;min-width:0">
+          <div style="font-size:15px;font-weight:600;color:#111">グリントレッド</div>
+          <div style="font-size:11px;color:#888;margin-top:1px">4歳 / 牡 / 栗毛</div>
+          <div style="margin-top:4px;display:flex;gap:4px;flex-wrap:wrap">
+            <span class="badge ok">良好</span>
+            <span class="badge badge-s">入厩</span>
+          </div>
+        </div>
+        <div style="text-align:right;flex-shrink:0">
+          <div style="font-size:15px;font-weight:600;color:#111">475kg</div>
+          <div style="font-size:11px;color:#2E7D32">+1kg</div>
+        </div>
+        <i class="ti ti-chevron-right" style="font-size:16px;color:#ccc;flex-shrink:0"></i>
+      </div>
+    </div><div class="card" style="cursor:pointer" onclick="openHorse(&#39;aYA2A2D3wXIuxDxKMUhA&#39;)">
+      <div style="display:flex;align-items:center;gap:10px">
+        <div style="width:50px;height:50px;border-radius:8px;background:#E3F2FD;display:flex;align-items:center;justify-content:center;font-size:26px;flex-shrink:0">🐎</div>
+        <div style="flex:1;min-width:0">
+          <div style="font-size:15px;font-weight:600;color:#111">アンジュベル</div>
+          <div style="font-size:11px;color:#888;margin-top:1px">3歳 / 牡 / 鹿毛</div>
+          <div style="margin-top:4px;display:flex;gap:4px;flex-wrap:wrap">
+            <span class="badge ok">良好</span>
+            <span class="badge badge-s">入厩</span>
+          </div>
+        </div>
+        <div style="text-align:right;flex-shrink:0">
+          <div style="font-size:15px;font-weight:600;color:#111">450kg</div>
+          <div style="font-size:11px;color:#2E7D32">+1kg</div>
+        </div>
+        <i class="ti ti-chevron-right" style="font-size:16px;color:#ccc;flex-shrink:0"></i>
+      </div>
+    </div><div class="card" style="cursor:pointer" onclick="openHorse(&#39;aanKY4f1uNiLvvVvPGjr&#39;)">
+      <div style="display:flex;align-items:center;gap:10px">
+        <div style="width:50px;height:50px;border-radius:8px;background:#E3F2FD;display:flex;align-items:center;justify-content:center;font-size:26px;flex-shrink:0">🐎</div>
+        <div style="flex:1;min-width:0">
+          <div style="font-size:15px;font-weight:600;color:#111">ケイツーブル</div>
+          <div style="font-size:11px;color:#888;margin-top:1px">4歳 / 牡 / 鹿毛</div>
+          <div style="margin-top:4px;display:flex;gap:4px;flex-wrap:wrap">
+            <span class="badge ok">良好</span>
+            <span class="badge badge-s">入厩</span>
+          </div>
+        </div>
+        <div style="text-align:right;flex-shrink:0">
+          <div style="font-size:15px;font-weight:600;color:#111">470kg</div>
+          <div style="font-size:11px;color:#C62828">-1kg</div>
+        </div>
+        <i class="ti ti-chevron-right" style="font-size:16px;color:#ccc;flex-shrink:0"></i>
+      </div>
+    </div><div class="card" style="cursor:pointer" onclick="openHorse(&#39;jLsDumKHgv1ETPcArV2s&#39;)">
+      <div style="display:flex;align-items:center;gap:10px">
+        <div style="width:50px;height:50px;border-radius:8px;background:#E3F2FD;display:flex;align-items:center;justify-content:center;font-size:26px;flex-shrink:0">🐎</div>
+        <div style="flex:1;min-width:0">
+          <div style="font-size:15px;font-weight:600;color:#111">ハナサキポプラ</div>
+          <div style="font-size:11px;color:#888;margin-top:1px">6歳 / 牝 / 鹿毛</div>
+          <div style="margin-top:4px;display:flex;gap:4px;flex-wrap:wrap">
+            <span class="badge warn">要観察</span>
+            <span class="badge badge-p">放牧</span>
+          </div>
+        </div>
+        <div style="text-align:right;flex-shrink:0">
+          <div style="font-size:15px;font-weight:600;color:#111">425kg</div>
+          <div style="font-size:11px;color:#2E7D32">+1kg</div>
+        </div>
+        <i class="ti ti-chevron-right" style="font-size:16px;color:#ccc;flex-shrink:0"></i>
+      </div>
+    </div><div class="card" style="cursor:pointer" onclick="openHorse(&#39;rQeaY7Q4kAiKkjUGz2ZB&#39;)">
+      <div style="display:flex;align-items:center;gap:10px">
+        <div style="width:50px;height:50px;border-radius:8px;background:#E3F2FD;display:flex;align-items:center;justify-content:center;font-size:26px;flex-shrink:0">🐎</div>
+        <div style="flex:1;min-width:0">
+          <div style="font-size:15px;font-weight:600;color:#111">アンジュラプソディ</div>
+          <div style="font-size:11px;color:#888;margin-top:1px">5歳 / 牡 / 鹿毛</div>
+          <div style="margin-top:4px;display:flex;gap:4px;flex-wrap:wrap">
+            <span class="badge ok">良好</span>
+            <span class="badge badge-s">入厩</span>
+          </div>
+        </div>
+        <div style="text-align:right;flex-shrink:0">
+          <div style="font-size:15px;font-weight:600;color:#111">460kg</div>
+          <div style="font-size:11px;color:#C62828">-1kg</div>
+        </div>
+        <i class="ti ti-chevron-right" style="font-size:16px;color:#ccc;flex-shrink:0"></i>
+      </div>
+    </div><div class="card" style="cursor:pointer" onclick="openHorse(&#39;sofEMfBIjoHJy1Vwhtok&#39;)">
+      <div style="display:flex;align-items:center;gap:10px">
+        <div style="width:50px;height:50px;border-radius:8px;background:#E3F2FD;display:flex;align-items:center;justify-content:center;font-size:26px;flex-shrink:0">🐎</div>
+        <div style="flex:1;min-width:0">
+          <div style="font-size:15px;font-weight:600;color:#111">ビーブレイヴ</div>
+          <div style="font-size:11px;color:#888;margin-top:1px">2歳 / 牡 / 鹿毛</div>
+          <div style="margin-top:4px;display:flex;gap:4px;flex-wrap:wrap">
+            <span class="badge ok">良好</span>
+            <span class="badge badge-s">入厩</span>
+          </div>
+        </div>
+        <div style="text-align:right;flex-shrink:0">
+          <div style="font-size:15px;font-weight:600;color:#111">412kg</div>
+          <div style="font-size:11px;color:#C62828">-1kg</div>
+        </div>
+        <i class="ti ti-chevron-right" style="font-size:16px;color:#ccc;flex-shrink:0"></i>
+      </div>
+    </div><div class="card" style="cursor:pointer" onclick="openHorse(&#39;uSPpTW4rRnPKqTWkUncc&#39;)">
+      <div style="display:flex;align-items:center;gap:10px">
+        <div style="width:50px;height:50px;border-radius:8px;background:#E3F2FD;display:flex;align-items:center;justify-content:center;font-size:26px;flex-shrink:0">🐎</div>
+        <div style="flex:1;min-width:0">
+          <div style="font-size:15px;font-weight:600;color:#111">マニーシーン</div>
+          <div style="font-size:11px;color:#888;margin-top:1px">4歳 / 牝 / 芦毛</div>
+          <div style="margin-top:4px;display:flex;gap:4px;flex-wrap:wrap">
+            <span class="badge ok">良好</span>
+            <span class="badge badge-s">入厩</span>
+          </div>
+        </div>
+        <div style="text-align:right;flex-shrink:0">
+          <div style="font-size:15px;font-weight:600;color:#111">448kg</div>
+          <div style="font-size:11px;color:#C62828">-1kg</div>
+        </div>
+        <i class="ti ti-chevron-right" style="font-size:16px;color:#ccc;flex-shrink:0"></i>
+      </div>
+    </div></div>
 </div>
 <div class="toast" id="toast"></div>
 
@@ -429,8 +718,15 @@ async function renderDetail(c){
           <div style="font-size:15px;font-weight:600;color:#1a3a5c">報告事項を追加</div>
           <button onclick="reportModal=false;render()" style="background:none;border:none;font-size:22px;color:#aaa;cursor:pointer;line-height:1">×</button>
         </div>
-        <div style="font-size:11px;color:#aaa;margin-bottom:8px">${h.name} ／ 入力日時は自動で記録されます</div>
-        <textarea id="rep-input" style="width:100%;height:100px;font-size:14px;padding:10px 12px;border:1px solid #ddd;border-radius:8px;font-family:inherit;color:#111;resize:none;line-height:1.6" placeholder="例: 右前脚に軽い腫れあり。様子見で経過観察中。"></textarea>
+        <div style="font-size:11px;color:#aaa;margin-bottom:10px">${h.name}</div>
+        <div style="margin-bottom:10px">
+          <label style="display:block;font-size:12px;color:#666;font-weight:600;margin-bottom:4px">日付</label>
+          <input type="date" id="rep-date" value="${todayVal}" style="width:100%;font-size:14px;padding:8px 10px;border:1px solid #ddd;border-radius:8px;font-family:inherit;color:#111;">
+        </div>
+        <div>
+          <label style="display:block;font-size:12px;color:#666;font-weight:600;margin-bottom:4px">報告内容</label>
+          <textarea id="rep-input" style="width:100%;height:100px;font-size:14px;padding:10px 12px;border:1px solid #ddd;border-radius:8px;font-family:inherit;color:#111;resize:none;line-height:1.6" placeholder="例: 右前脚に軽い腫れあり。様子見で経過観察中。"></textarea>
+        </div>
         <button onclick="saveReport('${h.id}')" style="width:100%;margin-top:12px;padding:12px;background:#1a3a5c;color:#fff;border:none;border-radius:8px;font-size:14px;font-weight:600;cursor:pointer;font-family:inherit">保存する</button>
       </div></div>`:''}
     <div class="sec">写真</div>
@@ -558,7 +854,14 @@ window.retireHorse = async function(id){
 window.saveReport = async function(hid){
   const txt=document.getElementById('rep-input'); if(!txt) return;
   const comment=txt.value.trim(); if(!comment){alert('報告内容を入力してください');return;}
-  const dt=`${NOW.getFullYear()}年${NOW.getMonth()+1}月${NOW.getDate()}日 ${pad(NOW.getHours())}:${pad(NOW.getMinutes())}`;
+  const dateEl=document.getElementById('rep-date');
+  let dt='';
+  if(dateEl&&dateEl.value){
+    const parts=dateEl.value.split('-');
+    dt=`${parts[0]}年${parseInt(parts[1])}月${parseInt(parts[2])}日 ${pad(NOW.getHours())}:${pad(NOW.getMinutes())}`;
+  } else {
+    dt=`${NOW.getFullYear()}年${NOW.getMonth()+1}月${NOW.getDate()}日 ${pad(NOW.getHours())}:${pad(NOW.getMinutes())}`;
+  }
   const newDoc={datetime:dt,comment,createdAt:Date.now()};
   await addDoc(collection(db,'horses',hid,'reports'),newDoc);
   if(!reports[hid]) reports[hid]=[];
@@ -1008,5 +1311,6 @@ window.addMember = async function(){
 // ===== 起動 =====
 initData();
 </script>
-</body>
-</html>
+
+
+</body></html>
