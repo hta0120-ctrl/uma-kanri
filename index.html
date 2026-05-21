@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<!-- saved from url=(0071)file:///C:/Users/hta01/Dropbox/PC%20(2)/Downloads/takahashi_stable.html -->
+<html lang="ja"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>高橋厩舎管理馬一覧</title>
+<link rel="stylesheet" href="./index_files/tabler-icons.min.css">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Hiragino Kaku Gothic ProN','Hiragino Sans','Noto Sans JP',sans-serif;background:#f0f0ec;min-height:100vh;display:flex;justify-content:center;}
+.app{width:100%;max-width:430px;background:#f0f0ec;min-height:100vh;display:flex;flex-direction:column;}
+.hdr{background:#1a3a5c;padding:14px 16px 10px;}
+.hdr h1{font-size:16px;font-weight:600;color:#fff;}
+.hdr p{font-size:11px;color:rgba(255,255,255,0.7);margin-top:2px;}
+.tabs{display:flex;background:#fff;border-bottom:1px solid #e0e0e0;overflow-x:auto;position:sticky;top:0;z-index:10;}
+.tabs::-webkit-scrollbar{display:none;}
+.tab{flex:1;min-width:46px;padding:8px 1px;font-size:9px;text-align:center;cursor:pointer;color:#888;border:none;background:none;border-bottom:2px solid transparent;font-family:inherit;}
+.tab.active{color:#1a3a5c;border-bottom-color:#1a3a5c;font-weight:600;}
+.tab i{display:block;font-size:15px;margin-bottom:2px;}
+.cnt{flex:1;padding:10px;}
+.card{background:#fff;border-radius:12px;border:1px solid #e8e8e8;padding:12px;margin-bottom:8px;}
+.sec{font-size:11px;font-weight:600;color:#888;letter-spacing:.05em;margin:12px 0 6px;padding-left:2px;}
+.badge{display:inline-flex;align-items:center;gap:3px;font-size:10px;padding:2px 7px;border-radius:99px;font-weight:600;}
+.ok{background:#E8F5E9;color:#2E7D32;}
+.warn{background:#FFF3E0;color:#E65100;}
+.retired{background:#ECEFF1;color:#546E7A;}
+.badge-stable{background:#E3F2FD;color:#1565C0;}
+.badge-pasture{background:#F3E5F5;color:#6A1B9A;}
+.irow{display:flex;justify-content:space-between;align-items:flex-start;padding:6px 0;border-bottom:1px solid #f5f5f5;font-size:12px;gap:8px;}
+.irow:last-child{border-bottom:none;}
+.irow .k{color:#888;white-space:nowrap;flex-shrink:0;}
+.irow .v{font-weight:600;color:#111;text-align:right;word-break:break-all;}
+.back{display:flex;align-items:center;gap:5px;font-size:13px;color:#1a3a5c;cursor:pointer;background:none;border:none;padding:0 0 10px;font-family:inherit;}
+.bar-wrap{display:flex;align-items:flex-end;gap:3px;height:50px;margin:8px 0 2px;}
+.bar{flex:1;background:#90CAF9;border-radius:3px 3px 0 0;min-height:6px;}
+.bar.today{background:#1a3a5c;}
+.cl{display:flex;gap:3px;}
+.cl span{flex:1;font-size:9px;color:#888;text-align:center;}
+.photo-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;}
+.photo-slot{aspect-ratio:1;border-radius:8px;border:1px solid #eee;background:#f7f7f5;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;overflow:hidden;}
+.photo-slot img{width:100%;height:100%;object-fit:cover;}
+.photo-slot i{font-size:26px;color:#bbb;}
+.photo-slot .ph-label{font-size:10px;color:#aaa;margin-top:3px;}
+.upload-btn{width:100%;padding:11px;background:#1a3a5c;color:white;border:none;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px;margin-top:8px;font-family:inherit;}
+.frow{margin-bottom:10px;}
+.frow label{display:block;font-size:12px;color:#666;margin-bottom:4px;font-weight:600;}
+.frow input,.frow select,.frow textarea{width:100%;font-size:13px;padding:9px 11px;border:1px solid #ddd;border-radius:8px;font-family:inherit;color:#111;background:#fff;}
+.frow textarea{resize:none;height:60px;}
+.save-btn{width:100%;padding:12px;background:#1a3a5c;color:white;border:none;border-radius:8px;font-size:14px;font-weight:600;cursor:pointer;font-family:inherit;}
+.edit-btn{padding:6px 12px;background:none;border:1px solid #1a3a5c;border-radius:6px;font-size:12px;color:#1a3a5c;cursor:pointer;font-family:inherit;font-weight:600;}
+.training-row{display:flex;gap:8px;align-items:flex-start;padding:9px 0;border-bottom:1px solid #f5f5f5;}
+.training-row:last-child{border-bottom:none;}
+.training-date{font-size:11px;color:#888;min-width:44px;padding-top:1px;flex-shrink:0;}
+.training-body{flex:1;font-size:12px;color:#111;}
+.training-body strong{font-weight:600;font-size:13px;}
+.horse-sel{display:flex;gap:6px;margin-bottom:10px;overflow-x:auto;padding-bottom:2px;flex-wrap:nowrap;}
+.horse-sel::-webkit-scrollbar{display:none;}
+.hsel-btn{flex-shrink:0;padding:6px 10px;border-radius:99px;border:1px solid #ddd;background:none;font-size:11px;cursor:pointer;color:#555;font-family:inherit;white-space:nowrap;}
+.hsel-btn.active{background:#1a3a5c;color:white;border-color:#1a3a5c;}
+.more-btn{width:100%;margin-top:8px;padding:9px;background:none;border:1px solid #ddd;border-radius:8px;font-size:12px;color:#1a3a5c;cursor:pointer;font-family:inherit;}
+.seg-wrap{display:flex;border:1px solid #ddd;border-radius:8px;overflow:hidden;width:100%;}
+.seg-btn{flex:1;padding:8px 4px;font-size:12px;text-align:center;background:none;border:none;cursor:pointer;font-family:inherit;color:#555;}
+.seg-btn.active{background:#1a3a5c;color:#fff;font-weight:600;}
+.check-row{display:flex;align-items:center;gap:10px;padding:10px 0;cursor:pointer;}
+.danger-btn{width:100%;padding:12px;background:#C62828;color:white;border:none;border-radius:8px;font-size:14px;font-weight:600;cursor:pointer;font-family:inherit;margin-top:8px;}
+/* チェックボックス */
+.chk{width:22px;height:22px;border-radius:5px;border:2px solid #ddd;display:flex;align-items:center;justify-content:center;flex-shrink:0;background:#fff;position:relative;}
+.chk.on{background:#1a3a5c;border-color:#1a3a5c;}
+.chk.on::after{content:'✓';color:#fff;font-size:13px;font-weight:700;position:absolute;}
+</style>
+</head>
+<body>
+<div class="app">
+  <div class="hdr">
+    <h1>🐎 高橋厩舎管理馬一覧</h1>
+    <p>南関東競馬 ｜ 高橋宏征調教師</p>
+  </div>
+  <div class="tabs">
+    <button class="tab" onclick="goTab(&#39;horses&#39;)" id="tab-horses"><i class="ti ti-list"></i>馬一覧</button>
+    <button class="tab active" onclick="goTab(&#39;daily&#39;)" id="tab-daily"><i class="ti ti-clipboard-list"></i>今日</button>
+    <button class="tab" onclick="goTab(&#39;training&#39;)" id="tab-training"><i class="ti ti-run"></i>調教記録</button>
+    <button class="tab" onclick="goTab(&#39;photos&#39;)" id="tab-photos"><i class="ti ti-camera"></i>写真</button>
+    <button class="tab" onclick="goTab(&#39;record&#39;)" id="tab-record"><i class="ti ti-pencil"></i>記録追加</button>
+    <button class="tab" onclick="goTab(&#39;newreg&#39;)" id="tab-newreg"><i class="ti ti-horse"></i>新規登録</button>
+    <button class="tab" onclick="goTab(&#39;retired&#39;)" id="tab-retired"><i class="ti ti-door-exit"></i>退厩馬</button>
+    <button class="tab" onclick="goTab(&#39;member&#39;)" id="tab-member"><i class="ti ti-users"></i>メンバー</button>
+  </div>
+  <div class="cnt" id="main-cnt"><div class="sec">2026年5月21日 の記録</div><div class="card">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+        <div style="width:36px;height:36px;border-radius:8px;background:#E3F2FD;display:flex;align-items:center;justify-content:center;font-size:19px;flex-shrink:0">🐎</div>
+        <span style="font-weight:600;font-size:14px;color:#111">アンジュベル</span>
+        <span class="badge ok">良好</span>
+        <span class="badge badge-stable">入厩</span>
+      </div>
+      <div class="irow"><span class="k"><i class="ti ti-weight" style="font-size:13px;vertical-align:-1px"></i> 体重</span><span class="v">450kg</span></div>
+      <div class="irow"><span class="k"><i class="ti ti-run" style="font-size:13px;vertical-align:-1px"></i> 調教</span><span class="v" style="font-size:11px;max-width:200px">軽キャンター 2000m・常歩 30分</span></div>
+      
+    </div><div class="card">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+        <div style="width:36px;height:36px;border-radius:8px;background:#E3F2FD;display:flex;align-items:center;justify-content:center;font-size:19px;flex-shrink:0">🐎</div>
+        <span style="font-weight:600;font-size:14px;color:#111">アンジュラプソディ</span>
+        <span class="badge ok">良好</span>
+        <span class="badge badge-stable">入厩</span>
+      </div>
+      <div class="irow"><span class="k"><i class="ti ti-weight" style="font-size:13px;vertical-align:-1px"></i> 体重</span><span class="v">460kg</span></div>
+      <div class="irow"><span class="k"><i class="ti ti-run" style="font-size:13px;vertical-align:-1px"></i> 調教</span><span class="v" style="font-size:11px;max-width:200px">軽キャンター 2000m・常歩 30分</span></div>
+      
+    </div><div class="card">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+        <div style="width:36px;height:36px;border-radius:8px;background:#E3F2FD;display:flex;align-items:center;justify-content:center;font-size:19px;flex-shrink:0">🐎</div>
+        <span style="font-weight:600;font-size:14px;color:#111">ウワサノアノコ</span>
+        <span class="badge ok">良好</span>
+        <span class="badge badge-stable">入厩</span>
+      </div>
+      <div class="irow"><span class="k"><i class="ti ti-weight" style="font-size:13px;vertical-align:-1px"></i> 体重</span><span class="v">422kg</span></div>
+      <div class="irow"><span class="k"><i class="ti ti-run" style="font-size:13px;vertical-align:-1px"></i> 調教</span><span class="v" style="font-size:11px;max-width:200px">軽キャンター 2000m・常歩 30分</span></div>
+      
+    </div><div class="card">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+        <div style="width:36px;height:36px;border-radius:8px;background:#E3F2FD;display:flex;align-items:center;justify-content:center;font-size:19px;flex-shrink:0">🐎</div>
+        <span style="font-weight:600;font-size:14px;color:#111">クツシタオトシタ</span>
+        <span class="badge ok">良好</span>
+        <span class="badge badge-stable">入厩</span>
+      </div>
+      <div class="irow"><span class="k"><i class="ti ti-weight" style="font-size:13px;vertical-align:-1px"></i> 体重</span><span class="v">440kg</span></div>
+      <div class="irow"><span class="k"><i class="ti ti-run" style="font-size:13px;vertical-align:-1px"></i> 調教</span><span class="v" style="font-size:11px;max-width:200px">軽キャンター 2000m・常歩 30分</span></div>
+      
+    </div><div class="card">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+        <div style="width:36px;height:36px;border-radius:8px;background:#E3F2FD;display:flex;align-items:center;justify-content:center;font-size:19px;flex-shrink:0">🐎</div>
+        <span style="font-weight:600;font-size:14px;color:#111">グリントレッド</span>
+        <span class="badge ok">良好</span>
+        <span class="badge badge-stable">入厩</span>
+      </div>
+      <div class="irow"><span class="k"><i class="ti ti-weight" style="font-size:13px;vertical-align:-1px"></i> 体重</span><span class="v">475kg</span></div>
+      <div class="irow"><span class="k"><i class="ti ti-run" style="font-size:13px;vertical-align:-1px"></i> 調教</span><span class="v" style="font-size:11px;max-width:200px">軽キャンター 2000m・常歩 30分</span></div>
+      
+    </div><div class="card">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+        <div style="width:36px;height:36px;border-radius:8px;background:#E3F2FD;display:flex;align-items:center;justify-content:center;font-size:19px;flex-shrink:0">🐎</div>
+        <span style="font-weight:600;font-size:14px;color:#111">ケイツーブル</span>
+        <span class="badge ok">良好</span>
+        <span class="badge badge-stable">入厩</span>
+      </div>
+      <div class="irow"><span class="k"><i class="ti ti-weight" style="font-size:13px;vertical-align:-1px"></i> 体重</span><span class="v">470kg</span></div>
+      <div class="irow"><span class="k"><i class="ti ti-run" style="font-size:13px;vertical-align:-1px"></i> 調教</span><span class="v" style="font-size:11px;max-width:200px">軽キャンター 2000m・常歩 30分</span></div>
+      
+    </div><div class="card">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+        <div style="width:36px;height:36px;border-radius:8px;background:#E3F2FD;display:flex;align-items:center;justify-content:center;font-size:19px;flex-shrink:0">🐎</div>
+        <span style="font-weight:600;font-size:14px;color:#111">ケイティキセキ</span>
+        <span class="badge ok">良好</span>
+        <span class="badge badge-stable">入厩</span>
+      </div>
+      <div class="irow"><span class="k"><i class="ti ti-weight" style="font-size:13px;vertical-align:-1px"></i> 体重</span><span class="v">443kg</span></div>
+      <div class="irow"><span class="k"><i class="ti ti-run" style="font-size:13px;vertical-align:-1px"></i> 調教</span><span class="v" style="font-size:11px;max-width:200px">軽キャンター 2000m・常歩 30分</span></div>
+      
+    </div><div class="card">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+        <div style="width:36px;height:36px;border-radius:8px;background:#E3F2FD;display:flex;align-items:center;justify-content:center;font-size:19px;flex-shrink:0">🐎</div>
+        <span style="font-weight:600;font-size:14px;color:#111">スマイルフェリス</span>
+        <span class="badge ok">良好</span>
+        <span class="badge badge-stable">入厩</span>
+      </div>
+      <div class="irow"><span class="k"><i class="ti ti-weight" style="font-size:13px;vertical-align:-1px"></i> 体重</span><span class="v">486kg</span></div>
+      <div class="irow"><span class="k"><i class="ti ti-run" style="font-size:13px;vertical-align:-1px"></i> 調教</span><span class="v" style="font-size:11px;max-width:200px">軽キャンター 2000m・常歩 30分</span></div>
+      
+    </div><div class="card">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+        <div style="width:36px;height:36px;border-radius:8px;background:#E3F2FD;display:flex;align-items:center;justify-content:center;font-size:19px;flex-shrink:0">🐎</div>
+        <span style="font-weight:600;font-size:14px;color:#111">ハナサキポプラ</span>
+        <span class="badge warn">要観察</span>
+        <span class="badge badge-pasture">放牧</span>
+      </div>
+      <div class="irow"><span class="k"><i class="ti ti-weight" style="font-size:13px;vertical-align:-1px"></i> 体重</span><span class="v">425kg</span></div>
+      <div class="irow"><span class="k"><i class="ti ti-run" style="font-size:13px;vertical-align:-1px"></i> 調教</span><span class="v" style="font-size:11px;max-width:200px">軽キャンター 2000m・常歩 30分</span></div>
+      
+    </div><div class="card">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+        <div style="width:36px;height:36px;border-radius:8px;background:#E3F2FD;display:flex;align-items:center;justify-content:center;font-size:19px;flex-shrink:0">🐎</div>
+        <span style="font-weight:600;font-size:14px;color:#111">ビーブレイヴ</span>
+        <span class="badge ok">良好</span>
+        <span class="badge badge-stable">入厩</span>
+      </div>
+      <div class="irow"><span class="k"><i class="ti ti-weight" style="font-size:13px;vertical-align:-1px"></i> 体重</span><span class="v">412kg</span></div>
+      <div class="irow"><span class="k"><i class="ti ti-run" style="font-size:13px;vertical-align:-1px"></i> 調教</span><span class="v" style="font-size:11px;max-width:200px">軽キャンター 2000m・常歩 30分</span></div>
+      
+    </div><div class="card">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+        <div style="width:36px;height:36px;border-radius:8px;background:#E3F2FD;display:flex;align-items:center;justify-content:center;font-size:19px;flex-shrink:0">🐎</div>
+        <span style="font-weight:600;font-size:14px;color:#111">フライングロッド</span>
+        <span class="badge ok">良好</span>
+        <span class="badge badge-stable">入厩</span>
+      </div>
+      <div class="irow"><span class="k"><i class="ti ti-weight" style="font-size:13px;vertical-align:-1px"></i> 体重</span><span class="v">489kg</span></div>
+      <div class="irow"><span class="k"><i class="ti ti-run" style="font-size:13px;vertical-align:-1px"></i> 調教</span><span class="v" style="font-size:11px;max-width:200px">軽キャンター 2000m・常歩 30分</span></div>
+      
+    </div><div class="card">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+        <div style="width:36px;height:36px;border-radius:8px;background:#E3F2FD;display:flex;align-items:center;justify-content:center;font-size:19px;flex-shrink:0">🐎</div>
+        <span style="font-weight:600;font-size:14px;color:#111">プレストジャンヌ</span>
+        <span class="badge ok">良好</span>
+        <span class="badge badge-stable">入厩</span>
+      </div>
+      <div class="irow"><span class="k"><i class="ti ti-weight" style="font-size:13px;vertical-align:-1px"></i> 体重</span><span class="v">434kg</span></div>
+      <div class="irow"><span class="k"><i class="ti ti-run" style="font-size:13px;vertical-align:-1px"></i> 調教</span><span class="v" style="font-size:11px;max-width:200px">軽キャンター 2000m・常歩 30分</span></div>
+      
+    </div><div class="card">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+        <div style="width:36px;height:36px;border-radius:8px;background:#E3F2FD;display:flex;align-items:center;justify-content:center;font-size:19px;flex-shrink:0">🐎</div>
+        <span style="font-weight:600;font-size:14px;color:#111">プレストルーチェ</span>
+        <span class="badge warn">要観察</span>
+        <span class="badge badge-stable">入厩</span>
+      </div>
+      <div class="irow"><span class="k"><i class="ti ti-weight" style="font-size:13px;vertical-align:-1px"></i> 体重</span><span class="v">499kg</span></div>
+      <div class="irow"><span class="k"><i class="ti ti-run" style="font-size:13px;vertical-align:-1px"></i> 調教</span><span class="v" style="font-size:11px;max-width:200px">軽キャンター 2000m・常歩 30分</span></div>
+      
+    </div><div class="card">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+        <div style="width:36px;height:36px;border-radius:8px;background:#E3F2FD;display:flex;align-items:center;justify-content:center;font-size:19px;flex-shrink:0">🐎</div>
+        <span style="font-weight:600;font-size:14px;color:#111">マニーシーン</span>
+        <span class="badge ok">良好</span>
+        <span class="badge badge-stable">入厩</span>
+      </div>
+      <div class="irow"><span class="k"><i class="ti ti-weight" style="font-size:13px;vertical-align:-1px"></i> 体重</span><span class="v">448kg</span></div>
+      <div class="irow"><span class="k"><i class="ti ti-run" style="font-size:13px;vertical-align:-1px"></i> 調教</span><span class="v" style="font-size:11px;max-width:200px">軽キャンター 2000m・常歩 30分</span></div>
+      
+    </div><div class="card">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+        <div style="width:36px;height:36px;border-radius:8px;background:#E3F2FD;display:flex;align-items:center;justify-content:center;font-size:19px;flex-shrink:0">🐎</div>
+        <span style="font-weight:600;font-size:14px;color:#111">ミツカネエリーズ</span>
+        <span class="badge ok">良好</span>
+        <span class="badge badge-stable">入厩</span>
+      </div>
+      <div class="irow"><span class="k"><i class="ti ti-weight" style="font-size:13px;vertical-align:-1px"></i> 体重</span><span class="v">438kg</span></div>
+      <div class="irow"><span class="k"><i class="ti ti-run" style="font-size:13px;vertical-align:-1px"></i> 調教</span><span class="v" style="font-size:11px;max-width:200px">軽キャンター 2000m・常歩 30分</span></div>
+      
+    </div><div class="card">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+        <div style="width:36px;height:36px;border-radius:8px;background:#E3F2FD;display:flex;align-items:center;justify-content:center;font-size:19px;flex-shrink:0">🐎</div>
+        <span style="font-weight:600;font-size:14px;color:#111">リンテンリュウ</span>
+        <span class="badge ok">良好</span>
+        <span class="badge badge-stable">入厩</span>
+      </div>
+      <div class="irow"><span class="k"><i class="ti ti-weight" style="font-size:13px;vertical-align:-1px"></i> 体重</span><span class="v">487kg</span></div>
+      <div class="irow"><span class="k"><i class="ti ti-run" style="font-size:13px;vertical-align:-1px"></i> 調教</span><span class="v" style="font-size:11px;max-width:200px">軽キャンター 2000m・常歩 30分</span></div>
+      
+    </div><div class="card">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+        <div style="width:36px;height:36px;border-radius:8px;background:#E3F2FD;display:flex;align-items:center;justify-content:center;font-size:19px;flex-shrink:0">🐎</div>
+        <span style="font-weight:600;font-size:14px;color:#111">レイヴオン</span>
+        <span class="badge ok">良好</span>
+        <span class="badge badge-stable">入厩</span>
+      </div>
+      <div class="irow"><span class="k"><i class="ti ti-weight" style="font-size:13px;vertical-align:-1px"></i> 体重</span><span class="v">480kg</span></div>
+      <div class="irow"><span class="k"><i class="ti ti-run" style="font-size:13px;vertical-align:-1px"></i> 調教</span><span class="v" style="font-size:11px;max-width:200px">軽キャンター 2000m・常歩 30分</span></div>
+      
+    </div></div>
+</div>
+
+<script>
+const today = new Date();
+const todayStr = `${today.getFullYear()}年${today.getMonth()+1}月${today.getDate()}日`;
+
+let horses = [
+  {id:1, name:"アンジュベル",      age:"3歳",sex:"牡",color:"鹿毛",  sire:"クロノジェネシス",         dam:"アンジュキックス",     dam_sire:"サウスヴィグラス",      owner:"北海道ホースファーム",     born:"2023年3月5日", weight:[446,448,450,447,451,449,450],record:"13戦1勝2着2回", status:"ok",  location:"stable",retired:false},
+  {id:2, name:"アンジュラプソディ", age:"5歳",sex:"牡",color:"鹿毛",  sire:"ラーズトゥルーム",         dam:"プリンシアレッテオ",   dam_sire:"サウスヴィグラス",      owner:"南関東ファーム",           born:"2021年生",     weight:[458,460,456,462,459,461,460],record:"8戦2勝2着1回",  status:"ok",  location:"stable",retired:false},
+  {id:3, name:"ウワサノアノコ",     age:"6歳",sex:"牝",color:"鹿毛",  sire:"レインボーライン",         dam:"アノネノネ",           dam_sire:"キングズベスト",        owner:"田中ファーム",             born:"2020年生",     weight:[420,418,422,419,423,421,422],record:"18戦3勝2着4回", status:"ok",  location:"stable",retired:false},
+  {id:4, name:"クツシタオトシタ",   age:"3歳",sex:"牝",color:"鹿毛",  sire:"ミスチービアスアレックス", dam:"エーシンシビア",       dam_sire:"スペシャルウィーク",    owner:"スペシャルウィークファーム",born:"2023年生",     weight:[438,440,436,442,439,441,440],record:"5戦0勝2着1回",  status:"ok",  location:"stable",retired:false},
+  {id:5, name:"グリントレッド",     age:"4歳",sex:"牡",color:"栗毛",  sire:"レッドファルクス",         dam:"エーシンマドンジー",   dam_sire:"デインヒルダンサー",    owner:"グランドステーブル",       born:"2022年生",     weight:[476,474,478,472,476,474,475],record:"10戦2勝2着3回", status:"ok",  location:"stable",retired:false},
+  {id:6, name:"ケイツーブル",       age:"4歳",sex:"牡",color:"鹿毛",  sire:"グレーターロンドン",       dam:"イシノエストック",     dam_sire:"タバスコキャット",      owner:"ケイファーム",             born:"2022年生",     weight:[468,470,466,472,469,471,470],record:"7戦1勝2着2回",  status:"ok",  location:"stable",retired:false},
+  {id:7, name:"ケイティキセキ",     age:"5歳",sex:"牝",color:"鹿毛",  sire:"キャシーサノキセキ",       dam:"スイートソール",       dam_sire:"スウェプトオーバーボード",owner:"ケイティレーシング",      born:"2021年生",     weight:[444,442,446,440,444,442,443],record:"12戦2勝2着3回", status:"ok",  location:"stable",retired:false},
+  {id:8, name:"スマイルフェリス",   age:"5歳",sex:"牡",color:"鹿毛",  sire:"コパノッキー",             dam:"エイシンマカロン",     dam_sire:"エンパイアメーカー",    owner:"スマイルレーシング",       born:"2021年生",     weight:[484,486,482,488,485,487,486],record:"15戦3勝2着4回", status:"ok",  location:"stable",retired:false},
+  {id:9, name:"ハナサキポプラ",     age:"6歳",sex:"牝",color:"鹿毛",  sire:"ガルボ",                   dam:"アドリアーネ",         dam_sire:"アグネスデジタル",      owner:"花咲ファーム",             born:"2020年生",     weight:[426,424,428,422,426,424,425],record:"20戦4勝2着5回", status:"warn",location:"pasture",retired:false},
+  {id:10,name:"ビーブレイヴ",       age:"2歳",sex:"牡",color:"鹿毛",  sire:"アルクトス",               dam:"ローアルダイン",       dam_sire:"ローアルインパクト",    owner:"ブライトファーム",         born:"2024年生",     weight:[410,412,408,414,411,413,412],record:"0戦0勝",         status:"ok",  location:"stable",retired:false},
+  {id:11,name:"フライングロッド",   age:"5歳",sex:"牡",color:"栗毛",  sire:"コパノッキー",             dam:"アンジュジャンパー",   dam_sire:"タートルボウル",        owner:"フライングファーム",       born:"2021年生",     weight:[490,488,492,486,490,488,489],record:"18戦4勝2着5回", status:"ok",  location:"stable",retired:false},
+  {id:12,name:"プレストジャンヌ",   age:"3歳",sex:"牝",color:"鹿毛",  sire:"カメロットフィジー",       dam:"ピンクロンバ",         dam_sire:"ハーツクライ",          owner:"プレストレーシング",       born:"2023年生",     weight:[432,434,430,436,433,435,434],record:"4戦0勝2着1回",  status:"ok",  location:"stable",retired:false},
+  {id:13,name:"プレストルーチェ",   age:"令9歳",sex:"牡",color:"鹿毛",sire:"マジェスティックウォリアー",dam:"ベアフルート",         dam_sire:"サクラバクシンオー",    owner:"プレストレーシング",       born:"2017年生",     weight:[500,498,502,496,500,498,499],record:"35戦9勝2着10回",status:"warn",location:"stable",retired:false},
+  {id:14,name:"マニーシーン",       age:"4歳",sex:"牝",color:"芦毛",  sire:"シャーロットハイボビー",   dam:"サマーフィス",         dam_sire:"マイネルセレクト",      owner:"マニーレーシング",         born:"2022年生",     weight:[446,448,444,450,447,449,448],record:"9戦1勝2着2回",  status:"ok",  location:"stable",retired:false},
+  {id:15,name:"ミツカネエリーズ",   age:"5歳",sex:"牝",color:"鹿毛",  sire:"シニスターミニスター",     dam:"ハルノ菜",             dam_sire:"エンパイアメーカー",    owner:"水金ファーム",             born:"2021年生",     weight:[436,438,434,440,437,439,438],record:"14戦2勝2着4回", status:"ok",  location:"stable",retired:false},
+  {id:16,name:"リンテンリュウ",     age:"4歳",sex:"牡",color:"黒鹿毛",sire:"ルーカス",                 dam:"クリスタルヴィオル",   dam_sire:"ビクトリービーチ",      owner:"リンテンファーム",         born:"2022年生",     weight:[488,486,490,484,488,486,487],record:"11戦2勝2着3回", status:"ok",  location:"stable",retired:false},
+  {id:17,name:"レイヴオン",         age:"4歳",sex:"牡",color:"鹿毛",  sire:"ルーニー",                 dam:"グラシーヌシチー",     dam_sire:"ハーツクライ",          owner:"ライトレーシング",         born:"2022年生",     weight:[478,480,476,482,479,481,480],record:"10戦1勝2着3回", status:"ok",  location:"stable",retired:false},
+];
+
+let retiredHorses = [];
+
+/* ===== 馬アイコン（絵文字版） ===== */
+function horseIcon(color, size=50){
+  const fs = Math.round(size * 0.52);
+  return `<div style="width:${size}px;height:${size}px;border-radius:8px;background:#E3F2FD;display:flex;align-items:center;justify-content:center;font-size:${fs}px;flex-shrink:0">🐎</div>`;
+}
+function horseIconRound(color, size=64){
+  const fs = Math.round(size * 0.52);
+  return `<div style="width:${size}px;height:${size}px;border-radius:10px;background:#E3F2FD;display:flex;align-items:center;justify-content:center;font-size:${fs}px;flex-shrink:0">🐎</div>`;
+}
+
+
+const trainingLogsMap = {};
+const photoData = {};
+const photosMap = {};
+const reportsMap = {};
+horses.forEach(h => {
+  trainingLogsMap[h.id] = [
+    {date:"5/20",menu:"軽キャンター 2000m・常歩 30分",note:""},
+    {date:"5/19",menu:"ハロン時計×3本・常歩 20分",note:""},
+    {date:"5/18",menu:"坂路 1本・常歩 30分",note:""},
+    {date:"5/17",menu:"軽キャンター 1500m",note:""},
+    {date:"5/16",menu:"休養日 放牧のみ",note:""},
+  ];
+  photosMap[h.id] = [{label:"5/20 朝"},{label:"5/19 朝"}];
+  reportsMap[h.id] = [];
+});
+
+let currentTab = "horses";
+let selectedHorse = null;
+let editingInfo = false;
+let trainingHorseId = null;
+let photoHorseId = null;
+let retiredSelectedHorse = null;
+let retireCheckSelected = false;
+let reportModal = false;   // 報告事項入力モーダル表示フラグ
+let trainingAddMode = false; // 調教記録追加フォーム表示フラグ
+
+function goTab(t){
+  currentTab=t; selectedHorse=null; editingInfo=false; retireCheckSelected=false; reportModal=false; editingMemberId=null; trainingAddMode=false;
+  document.querySelectorAll('.tab').forEach(el=>el.classList.remove('active'));
+  document.getElementById('tab-'+t).classList.add('active');
+  render();
+}
+
+function render(){
+  const c = document.getElementById('main-cnt');
+  if(currentTab==='horses') selectedHorse ? renderDetail(c) : renderList(c);
+  else if(currentTab==='daily') renderDaily(c);
+  else if(currentTab==='training') renderTraining(c);
+  else if(currentTab==='photos') renderPhotos(c);
+  else if(currentTab==='record') renderDailyForm(c);
+  else if(currentTab==='newreg') renderNewHorseForm(c);
+  else if(currentTab==='retired') retiredSelectedHorse ? renderRetiredDetail(c) : renderRetiredList(c);
+  else if(currentTab==='member') renderMembers(c);
+}
+
+/* ===== 馬一覧 ===== */
+function renderList(c){
+  const active = horses.filter(h=>!h.retired);
+  c.innerHTML = `<div class="sec">在厩馬 ${active.length}頭</div>` +
+    active.map(h=>{
+      const w=h.weight, diff=w[w.length-1]-w[w.length-2], ds=diff>0?'+'+diff:''+diff;
+      const locBadge = h.location==='stable'
+        ? `<span class="badge badge-stable">入厩</span>`
+        : `<span class="badge badge-pasture">放牧</span>`;
+      return `<div class="card" style="cursor:pointer" onclick="selectedHorse=${h.id};editingInfo=false;retireCheckSelected=false;render()">
+        <div style="display:flex;align-items:center;gap:10px">
+          ${horseIcon(h.color)}
+          <div style="flex:1;min-width:0">
+            <div style="font-size:15px;font-weight:600;color:#111">${h.name}</div>
+            <div style="font-size:11px;color:#888;margin-top:1px">${h.age} / ${h.sex} / ${h.color}</div>
+            <div style="margin-top:4px;display:flex;gap:4px;flex-wrap:wrap">
+              <span class="badge ${h.status==='ok'?'ok':'warn'}">${h.status==='ok'?'良好':'要観察'}</span>
+              ${locBadge}
+            </div>
+          </div>
+          <div style="text-align:right;flex-shrink:0">
+            <div style="font-size:15px;font-weight:600;color:#111">${w[w.length-1]}kg</div>
+            <div style="font-size:11px;color:${diff>=0?'#2E7D32':'#C62828'}">${ds}kg</div>
+          </div>
+          <i class="ti ti-chevron-right" style="font-size:16px;color:#ccc;flex-shrink:0"></i>
+        </div>
+      </div>`;
+    }).join('');
+}
+
+/* ===== 馬詳細 ===== */
+function renderDetail(c){
+  const h = horses.find(x=>x.id===selectedHorse);
+  if(!h){selectedHorse=null;render();return;}
+  const w=h.weight, mx=Math.max(...w), mn=Math.min(...w), rng=mx-mn||1;
+  const bars=w.map((v,i)=>`<div class="bar ${i===w.length-1?'today':''}" style="height:${Math.round(((v-mn)/rng)*70+20)}%"></div>`).join('');
+  const dl=(trainingLogsMap[h.id]||[]).slice(0,3);
+  const locBadge = h.location==='stable'
+    ? `<span class="badge badge-stable">入厩</span>`
+    : `<span class="badge badge-pasture">放牧</span>`;
+
+  // 基本情報：閲覧 or 編集
+  const infoSection = editingInfo ? `
+    <div class="sec" style="display:flex;justify-content:space-between;align-items:center">
+      <span>基本情報（編集中）</span>
+      <div style="display:flex;gap:6px">
+        <button class="edit-btn" style="background:#1a3a5c;color:#fff;border-color:#1a3a5c" onclick="saveInfo(${h.id})">保存</button>
+        <button class="edit-btn" onclick="editingInfo=false;render()">キャンセル</button>
+      </div>
+    </div>
+    <div class="card">
+      <div class="frow"><label>馬名</label><input id="ei-name" value="${h.name}"></div>
+      <div class="frow"><label>年齢</label><input id="ei-age" value="${h.age}"></div>
+      <div class="frow"><label>性別</label>
+        <select id="ei-sex">
+          <option ${h.sex==='牡'?'selected':''}>牡</option>
+          <option ${h.sex==='牝'?'selected':''}>牝</option>
+          <option ${h.sex==='騸'?'selected':''}>騸</option>
+        </select>
+      </div>
+      <div class="frow"><label>毛色</label>
+        <select id="ei-color">
+          ${['鹿毛','黒鹿毛','青鹿毛','青毛','芦毛','栗毛','白毛','佐目毛','河原毛'].map(c=>`<option ${h.color===c?'selected':''}>${c}</option>`).join('')}
+        </select>
+      </div>
+      <div class="frow"><label>父</label><input id="ei-sire" value="${h.sire}"></div>
+      <div class="frow"><label>母</label><input id="ei-dam" value="${h.dam}"></div>
+      <div class="frow"><label>母父</label><input id="ei-dam-sire" value="${h.dam_sire}"></div>
+      <div class="frow"><label>馬主</label><input id="ei-owner" value="${h.owner}"></div>
+      <div class="frow"><label>生年月日</label><input id="ei-born" value="${h.born}"></div>
+      <div class="frow"><label>戦績</label><input id="ei-record" value="${h.record}"></div>
+    </div>
+  ` : `
+    <div class="sec" style="display:flex;justify-content:space-between;align-items:center">
+      <span>基本情報</span>
+      <button class="edit-btn" onclick="editingInfo=true;render()"><i class="ti ti-pencil" style="font-size:12px;vertical-align:-1px"></i> 編集</button>
+    </div>
+    <div class="card">
+      <div class="irow"><span class="k">馬名</span><span class="v">${h.name}</span></div>
+      <div class="irow"><span class="k">年齢</span><span class="v">${h.age}</span></div>
+      <div class="irow"><span class="k">性別</span><span class="v">${h.sex}</span></div>
+      <div class="irow"><span class="k">毛色</span><span class="v">${h.color}</span></div>
+      <div class="irow"><span class="k">父</span><span class="v">${h.sire}</span></div>
+      <div class="irow"><span class="k">母</span><span class="v">${h.dam}</span></div>
+      <div class="irow"><span class="k">母父</span><span class="v">${h.dam_sire}</span></div>
+      <div class="irow"><span class="k">馬主</span><span class="v">${h.owner}</span></div>
+      <div class="irow"><span class="k">生年月日</span><span class="v">${h.born}</span></div>
+      <div class="irow"><span class="k">戦績</span><span class="v">${h.record}</span></div>
+    </div>
+  `;
+
+  c.innerHTML = `
+    <button class="back" onclick="selectedHorse=null;editingInfo=false;retireCheckSelected=false;render()"><i class="ti ti-arrow-left"></i>一覧に戻る</button>
+
+    <!-- プロフィールカード -->
+    <div class="card">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px">
+        ${horseIconRound(h.color)}
+        <div>
+          <div style="font-size:18px;font-weight:600;color:#111">${h.name}</div>
+          <div style="font-size:11px;color:#888;margin-top:2px">${h.age} ${h.sex} / ${h.color}</div>
+          <div style="display:flex;gap:4px;margin-top:5px;flex-wrap:wrap">
+            <span class="badge ${h.status==='ok'?'ok':'warn'}">${h.status==='ok'?'良好':'要観察'}</span>
+            ${locBadge}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 状態・場所変更 -->
+    <div class="sec">状態・場所の変更</div>
+    <div class="card">
+      <div style="font-size:12px;color:#666;margin-bottom:6px;font-weight:600">状態</div>
+      <div class="seg-wrap" style="margin-bottom:12px">
+        <button class="seg-btn ${h.status==='ok'?'active':''}" onclick="setStatus(${h.id},'ok')">良好</button>
+        <button class="seg-btn ${h.status==='warn'?'active':''}" onclick="setStatus(${h.id},'warn')">要観察</button>
+      </div>
+      <div style="font-size:12px;color:#666;margin-bottom:6px;font-weight:600">場所</div>
+      <div class="seg-wrap">
+        <button class="seg-btn ${h.location==='stable'?'active':''}" onclick="setLocation(${h.id},'stable')">入厩</button>
+        <button class="seg-btn ${h.location==='pasture'?'active':''}" onclick="setLocation(${h.id},'pasture')">放牧</button>
+      </div>
+    </div>
+
+    ${infoSection}
+
+    <!-- 体重推移 -->
+    <div class="sec">体重推移（直近7日）</div>
+    <div class="card">
+      <div class="bar-wrap">${bars}</div>
+      <div class="cl">${w.map((_,i)=>`<span>${['月','火','水','木','金','土','日'][i]}</span>`).join('')}</div>
+      <div style="margin-top:6px;font-size:12px;color:#888">本日: <span style="font-weight:600;color:#111">${w[w.length-1]}kg</span></div>
+    </div>
+
+    <!-- 調教記録 -->
+    <div class="sec">最近の調教記録</div>
+    <div class="card">
+      ${dl.map(l=>`<div class="training-row"><div class="training-date">${l.date}</div><div class="training-body"><strong>${l.menu}</strong>${l.note?`<br><span style="color:#888;font-size:11px">${l.note}</span>`:''}</div></div>`).join('')}
+      <button class="more-btn" onclick="trainingHorseId=${h.id};goTab('training')">すべての調教記録を見る</button>
+    </div>
+
+    <!-- 報告事項 -->
+    <div class="sec">報告事項</div>
+    <div class="card">
+      ${(reportsMap[h.id]||[]).length===0
+        ? `<div style="text-align:center;padding:12px 0;color:#bbb;font-size:13px">まだ報告はありません</div>`
+        : (reportsMap[h.id]||[]).slice(0,5).map(r=>`
+          <div style="padding:8px 0;border-bottom:1px solid #f5f5f5">
+            <div style="font-size:10px;color:#aaa;margin-bottom:3px">${r.datetime}</div>
+            <div style="font-size:13px;color:#111;line-height:1.6">${r.comment.replace(/\n/g,'<br>')}</div>
+          </div>`).join('')
+      }
+      ${(reportsMap[h.id]||[]).length>5
+        ? `<div style="font-size:11px;color:#aaa;text-align:center;padding:6px 0">他 ${(reportsMap[h.id]||[]).length-5} 件</div>`
+        : ''}
+      <button onclick="reportModal=true;render()" style="width:100%;margin-top:10px;padding:10px;background:none;border:1px solid #1a3a5c;border-radius:8px;font-size:13px;color:#1a3a5c;cursor:pointer;font-family:inherit;font-weight:600;display:flex;align-items:center;justify-content:center;gap:6px">
+        <i class="ti ti-message-plus" style="font-size:15px"></i>報告を追加する
+      </button>
+    </div>
+
+    ${reportModal ? `
+    <div style="position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.45);z-index:200;display:flex;align-items:flex-end;justify-content:center">
+      <div style="background:#fff;border-radius:16px 16px 0 0;padding:20px 16px 32px;width:100%;max-width:430px">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px">
+          <div style="font-size:15px;font-weight:600;color:#1a3a5c">報告事項を追加</div>
+          <button onclick="reportModal=false;render()" style="background:none;border:none;font-size:22px;color:#aaa;cursor:pointer;line-height:1">×</button>
+        </div>
+        <div style="font-size:11px;color:#aaa;margin-bottom:8px">${h.name} ／ 入力日時は自動で記録されます</div>
+        <textarea id="report-input" style="width:100%;height:100px;font-size:14px;padding:10px 12px;border:1px solid #ddd;border-radius:8px;font-family:inherit;color:#111;resize:none;line-height:1.6" placeholder="例: 右前脚に軽い腫れあり。様子見で経過観察中。"></textarea>
+        <button onclick="saveReport(${h.id})" style="width:100%;margin-top:12px;padding:12px;background:#1a3a5c;color:#fff;border:none;border-radius:8px;font-size:14px;font-weight:600;cursor:pointer;font-family:inherit">
+          <i class="ti ti-device-floppy" style="font-size:14px;vertical-align:-2px"></i> 保存する
+        </button>
+      </div>
+    </div>` : ''}
+
+    <!-- 写真 -->
+    <div class="sec">写真</div>
+    <div class="card">
+      <input type="file" id="file-det-${h.id}" accept="image/*" capture="environment" style="display:none" onchange="handlePhoto(event,${h.id})">
+      <div class="photo-grid">${(photosMap[h.id]||[]).slice(0,4).map((p,i)=>{
+        const src=photoData[h.id+'_'+i];
+        return`<div class="photo-slot" onclick="triggerUpload(${h.id},${i},'file-det-${h.id}')">
+          ${src?`<img src="${src}">`:`<i class="ti ti-photo"></i><span class="ph-label">${p.label}</span>`}
+        </div>`;
+      }).join('')}</div>
+      <button class="upload-btn" onclick="document.getElementById('file-det-${h.id}').click()">
+        <i class="ti ti-camera" style="font-size:15px"></i>写真を撮影・追加
+      </button>
+    </div>
+
+    <!-- その他の操作 -->
+    <div class="sec">その他の操作</div>
+    <div class="card">
+      <div class="check-row" onclick="retireCheckSelected=!retireCheckSelected;render()">
+        <div class="chk ${retireCheckSelected?'on':''}"></div>
+        <div style="flex:1">
+          <div style="font-size:13px;font-weight:600;color:#546E7A">この馬を退厩馬に移動する</div>
+          <div style="font-size:11px;color:#aaa;margin-top:2px">チェックを入れて実行ボタンを押してください</div>
+        </div>
+        <i class="ti ti-door-exit" style="font-size:18px;color:#90A4AE"></i>
+      </div>
+      ${retireCheckSelected ? `<button class="danger-btn" onclick="retireHorse(${h.id})">
+        <i class="ti ti-door-exit" style="font-size:14px;vertical-align:-2px"></i> 退厩馬フォルダに移動する
+      </button>` : ''}
+    </div>
+    <div style="height:20px"></div>
+  `;
+}
+
+function saveInfo(id){
+  const h = horses.find(x=>x.id===id);
+  if(!h) return;
+  h.name   = document.getElementById('ei-name').value.trim() || h.name;
+  h.age    = document.getElementById('ei-age').value.trim() || h.age;
+  h.sex    = document.getElementById('ei-sex').value;
+  h.color  = document.getElementById('ei-color').value;
+  h.sire   = document.getElementById('ei-sire').value.trim() || h.sire;
+  h.dam    = document.getElementById('ei-dam').value.trim() || h.dam;
+  h.dam_sire = document.getElementById('ei-dam-sire').value.trim() || h.dam_sire;
+  h.owner  = document.getElementById('ei-owner').value.trim() || h.owner;
+  h.born   = document.getElementById('ei-born').value.trim() || h.born;
+  h.record = document.getElementById('ei-record').value.trim() || h.record;
+  editingInfo = false;
+  render();
+}
+
+function saveReport(horseId){
+  const txt = document.getElementById('report-input');
+  if(!txt) return;
+  const comment = txt.value.trim();
+  if(!comment){ alert('報告内容を入力してください'); return; }
+  const now = new Date();
+  const pad = n => String(n).padStart(2,'0');
+  const datetime = `${now.getFullYear()}年${now.getMonth()+1}月${now.getDate()}日 ${pad(now.getHours())}:${pad(now.getMinutes())}`;
+  if(!reportsMap[horseId]) reportsMap[horseId]=[];
+  reportsMap[horseId].unshift({datetime, comment});
+  reportModal=false;
+  render();
+}
+function setStatus(id, val){
+  const h = horses.find(x=>x.id===id);
+  if(h){ h.status=val; render(); }
+}
+function setLocation(id, val){
+  const h = horses.find(x=>x.id===id);
+  if(h){ h.location=val; render(); }
+}
+function retireHorse(id){
+  const h = horses.find(x=>x.id===id);
+  if(!h) return;
+  h.retired=true;
+  retiredHorses.push(h);
+  retireCheckSelected=false;
+  selectedHorse=null;
+  alert(`✅ ${h.name} を退厩馬フォルダに移動しました。`);
+  render();
+}
+function triggerUpload(horseId,idx,inputId){
+  const el=document.getElementById(inputId);
+  if(el){el.dataset.idx=idx;el.click();}
+}
+function handlePhoto(e,horseId){
+  const file=e.target.files[0]; if(!file) return;
+  const idx=parseInt(e.target.dataset.idx)||0;
+  const reader=new FileReader();
+  reader.onload=ev=>{photoData[horseId+'_'+idx]=ev.target.result;render();};
+  reader.readAsDataURL(file);
+}
+
+/* ===== 今日の記録 ===== */
+function renderDaily(c){
+  const active=horses.filter(h=>!h.retired);
+  c.innerHTML=`<div class="sec">${todayStr} の記録</div>`+active.map(h=>{
+    const w=h.weight;
+    const logs=trainingLogsMap[h.id]||[];
+    const todayLog=logs[0]||{menu:'未記録',note:''};
+    const locBadge = h.location==='stable'
+      ? `<span class="badge badge-stable">入厩</span>`
+      : `<span class="badge badge-pasture">放牧</span>`;
+    return`<div class="card">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+        ${horseIcon(h.color, 36)}
+        <span style="font-weight:600;font-size:14px;color:#111">${h.name}</span>
+        <span class="badge ${h.status==='ok'?'ok':'warn'}">${h.status==='ok'?'良好':'要観察'}</span>
+        ${locBadge}
+      </div>
+      <div class="irow"><span class="k"><i class="ti ti-weight" style="font-size:13px;vertical-align:-1px"></i> 体重</span><span class="v">${w[w.length-1]}kg</span></div>
+      <div class="irow"><span class="k"><i class="ti ti-run" style="font-size:13px;vertical-align:-1px"></i> 調教</span><span class="v" style="font-size:11px;max-width:200px">${todayLog.menu}</span></div>
+      ${todayLog.note?`<div class="irow"><span class="k"><i class="ti ti-notes" style="font-size:13px;vertical-align:-1px"></i> メモ</span><span class="v" style="font-size:11px">${todayLog.note}</span></div>`:''}
+    </div>`;
+  }).join('');
+}
+
+/* ===== 調教記録 ===== */
+function renderTraining(c){
+  const active=horses.filter(h=>!h.retired);
+  if(!trainingHorseId || !active.find(h=>h.id===trainingHorseId)) trainingHorseId=active[0]?.id;
+  const selBtns=active.map(h=>`<button class="hsel-btn ${h.id===trainingHorseId?'active':''}" onclick="trainingHorseId=${h.id};trainingAddMode=false;render()">${h.name}</button>`).join('');
+  const logs=trainingLogsMap[trainingHorseId]||[];
+
+  // 今日の日付をデフォルト値用に整形 (YYYY-MM-DD)
+  const now = new Date();
+  const pad = n=>String(n).padStart(2,'0');
+  const todayVal = `${now.getFullYear()}-${pad(now.getMonth()+1)}-${pad(now.getDate())}`;
+
+  const addForm = trainingAddMode ? `
+    <div class="sec">調教記録を追加</div>
+    <div class="card">
+      <div class="frow">
+        <label>日付</label>
+        <input type="date" id="ta-date" value="${todayVal}" style="font-size:14px;padding:8px 10px;border:1px solid #ddd;border-radius:8px;width:100%;font-family:inherit">
+      </div>
+      <div class="frow">
+        <label>調教メニュー</label>
+        <textarea id="ta-menu" style="width:100%;height:70px;font-size:13px;padding:9px 11px;border:1px solid #ddd;border-radius:8px;font-family:inherit;color:#111;resize:none;line-height:1.6" placeholder="例: 軽キャンター 2000m・常歩 30分"></textarea>
+      </div>
+      <div class="frow">
+        <label>メモ（任意）</label>
+        <textarea id="ta-note" style="width:100%;height:55px;font-size:13px;padding:9px 11px;border:1px solid #ddd;border-radius:8px;font-family:inherit;color:#111;resize:none;line-height:1.6" placeholder="例: 動き良好、タイム安定"></textarea>
+      </div>
+      <div style="display:flex;gap:8px;margin-top:4px">
+        <button onclick="saveTrainingLog()" style="flex:1;padding:10px;background:#1a3a5c;color:#fff;border:none;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit">
+          <i class="ti ti-device-floppy" style="font-size:13px;vertical-align:-1px"></i> 保存
+        </button>
+        <button onclick="trainingAddMode=false;render()" style="flex:1;padding:10px;background:none;border:1px solid #ddd;border-radius:8px;font-size:13px;cursor:pointer;font-family:inherit;color:#666">キャンセル</button>
+      </div>
+    </div>
+  ` : '';
+
+  c.innerHTML=`
+    <div class="sec">馬を選択</div>
+    <div class="horse-sel">${selBtns}</div>
+    ${addForm}
+    <div class="sec" style="display:flex;justify-content:space-between;align-items:center">
+      <span>調教記録一覧</span>
+      ${!trainingAddMode ? `<button onclick="trainingAddMode=true;render()" style="padding:5px 12px;background:none;border:1px solid #1a3a5c;border-radius:6px;font-size:12px;color:#1a3a5c;cursor:pointer;font-family:inherit;font-weight:600"><i class="ti ti-plus" style="font-size:12px;vertical-align:-1px"></i> 追加</button>` : ''}
+    </div>
+    <div class="card">
+      ${logs.length>0 ? logs.map(l=>`<div class="training-row">
+        <div class="training-date" style="min-width:50px">${l.date}</div>
+        <div class="training-body"><strong>${l.menu}</strong>${l.note?`<br><span style="color:#888;font-size:11px">${l.note}</span>`:''}</div>
+      </div>`).join('') : '<div style="text-align:center;padding:16px;color:#aaa">記録がありません</div>'}
+    </div>
+    <div style="height:16px"></div>
+  `;
+}
+
+function saveTrainingLog(){
+  const dateEl = document.getElementById('ta-date');
+  const menuEl = document.getElementById('ta-menu');
+  const noteEl = document.getElementById('ta-note');
+  if(!menuEl || !menuEl.value.trim()){ alert('調教メニューを入力してください'); return; }
+  // 日付を表示用に変換
+  let dateStr = '';
+  if(dateEl && dateEl.value){
+    const parts = dateEl.value.split('-');
+    dateStr = `${parseInt(parts[1])}/${parseInt(parts[2])}`;
+  } else {
+    const now = new Date();
+    dateStr = `${now.getMonth()+1}/${now.getDate()}`;
+  }
+  if(!trainingLogsMap[trainingHorseId]) trainingLogsMap[trainingHorseId]=[];
+  // 日付順で挿入（新しい日付が上）
+  const newLog = {date:dateStr, menu:menuEl.value.trim(), note:noteEl?noteEl.value.trim():''};
+  trainingLogsMap[trainingHorseId].unshift(newLog);
+  trainingAddMode = false;
+  render();
+}
+
+/* ===== 写真 ===== */
+function renderPhotos(c){
+  const active=horses.filter(h=>!h.retired);
+  if(!photoHorseId || !active.find(h=>h.id===photoHorseId)) photoHorseId=active[0]?.id;
+  const selBtns=active.map(h=>`<button class="hsel-btn ${h.id===photoHorseId?'active':''}" onclick="photoHorseId=${h.id};render()">${h.name}</button>`).join('');
+  const h=active.find(x=>x.id===photoHorseId);
+  const ph=photosMap[photoHorseId]||[];
+  const grid=ph.map((p,i)=>{
+    const src=photoData[photoHorseId+'_'+i];
+    return`<div class="photo-slot" onclick="document.getElementById('photo-tab-up').dataset.idx=${i};document.getElementById('photo-tab-up').click()">
+      ${src?`<img src="${src}">`:`<i class="ti ti-photo"></i><span class="ph-label">${p.label}</span>`}
+    </div>`;
+  }).join('');
+  c.innerHTML=`
+    <div class="sec">馬を選択</div>
+    <div class="horse-sel">${selBtns}</div>
+    <input type="file" id="photo-tab-up" accept="image/*" capture="environment" style="display:none" onchange="handlePhotoTab(event)">
+    <div class="sec">${h?.name||''} の写真</div>
+    <div class="card">
+      <div class="photo-grid">${grid}</div>
+      <button class="upload-btn" style="margin-top:10px" onclick="photosMap[${photoHorseId}].push({label:'新しい写真'});document.getElementById('photo-tab-up').dataset.idx=${ph.length};document.getElementById('photo-tab-up').click()">
+        <i class="ti ti-camera" style="font-size:15px"></i>写真を追加
+      </button>
+    </div>
+  `;
+}
+function handlePhotoTab(e){
+  const file=e.target.files[0]; if(!file) return;
+  const idx=parseInt(e.target.dataset.idx)||0;
+  const reader=new FileReader();
+  reader.onload=ev=>{photoData[photoHorseId+'_'+idx]=ev.target.result;render();};
+  reader.readAsDataURL(file);
+}
+
+/* ===== 記録追加 ===== */
+function renderDailyForm(c){
+  const active=horses.filter(h=>!h.retired);
+  c.innerHTML=`
+    <div class="sec">日次記録を追加</div>
+    <div class="card">
+      <div class="frow"><label>対象の馬</label><select id="f-horse"><option value="">選択してください</option>${active.map(h=>`<option value="${h.id}">${h.name}</option>`).join('')}</select></div>
+      <div class="frow"><label>馬体重 (kg)</label><input type="number" id="f-weight" placeholder="例: 490"></div>
+    </div>
+    <div class="sec">飼料</div>
+    <div class="card">
+      <div class="frow"><label>飼料①</label><input type="text" id="f-feed1" placeholder="例: オーツ麦 4kg"></div>
+      <div class="frow"><label>飼料②</label><input type="text" id="f-feed2" placeholder="例: 干し草 5kg"></div>
+      <div class="frow"><label>飼料③（任意）</label><input type="text" id="f-feed3" placeholder="例: 配合飼料 2kg"></div>
+    </div>
+    <div class="sec">調教・メモ</div>
+    <div class="card">
+      <div class="frow"><label>調教メニュー</label><textarea id="f-training" placeholder="例: 軽キャンター 2000m・常歩 30分"></textarea></div>
+      <div class="frow"><label>メモ・特記事項</label><textarea id="f-note" placeholder="例: 食欲旺盛、脚元問題なし"></textarea></div>
+    </div>
+    <div class="sec">写真</div>
+    <div class="card">
+      <input type="file" id="f-photo" accept="image/*" capture="environment" style="display:none" onchange="previewFormPhoto(event)">
+      <div id="form-photo-preview" style="width:100%;aspect-ratio:16/9;border-radius:8px;border:1px dashed #ccc;background:#f7f7f5;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer" onclick="document.getElementById('f-photo').click()">
+        <i class="ti ti-camera" style="font-size:28px;color:#bbb"></i>
+        <span style="font-size:12px;color:#aaa;margin-top:5px">タップして撮影・選択</span>
+      </div>
+    </div>
+    <button class="save-btn" onclick="saveDailyRecord()">記録を保存</button>
+    <div style="height:24px"></div>
+  `;
+}
+function saveDailyRecord(){
+  const hId=parseInt(document.getElementById('f-horse').value);
+  const w=parseInt(document.getElementById('f-weight').value);
+  if(!hId||!w){alert('馬と体重を入力してください');return;}
+  const h=horses.find(x=>x.id===hId);
+  if(h){h.weight.push(w);h.weight=h.weight.slice(-7);}
+  const training=document.getElementById('f-training').value;
+  const note=document.getElementById('f-note').value;
+  if(training){
+    if(!trainingLogsMap[hId]) trainingLogsMap[hId]=[];
+    trainingLogsMap[hId].unshift({date:`${today.getMonth()+1}/${today.getDate()}`,menu:training,note:note});
+  }
+  alert('✅ 記録を保存しました！');
+  goTab('horses');
+}
+function previewFormPhoto(e){
+  const file=e.target.files[0]; if(!file) return;
+  const reader=new FileReader();
+  reader.onload=ev=>{
+    const p=document.getElementById('form-photo-preview');
+    if(p) p.innerHTML=`<img src="${ev.target.result}" style="width:100%;height:100%;object-fit:cover;border-radius:8px">`;
+  };
+  reader.readAsDataURL(file);
+}
+
+/* ===== 新規登録 ===== */
+function renderNewHorseForm(c){
+  c.innerHTML=`
+    <div class="sec">基本情報</div>
+    <div class="card">
+      <div class="frow"><label>馬名 <span style="color:#C62828">*</span></label><input type="text" id="nf-name" placeholder="例: サクラエース"></div>
+      <div class="frow"><label>年齢</label><input type="text" id="nf-age" placeholder="例: 3歳"></div>
+      <div class="frow"><label>性別</label>
+        <select id="nf-sex"><option value="牡">牡</option><option value="牝">牝</option><option value="騸">騸</option></select>
+      </div>
+      <div class="frow"><label>毛色</label>
+        <select id="nf-color">
+          ${['鹿毛','黒鹿毛','青鹿毛','青毛','芦毛','栗毛','白毛','佐目毛','河原毛'].map(c=>`<option>${c}</option>`).join('')}
+        </select>
+      </div>
+      <div class="frow"><label>生年月日</label><input type="text" id="nf-born" placeholder="例: 2023年4月5日"></div>
+    </div>
+    <div class="sec">血統・馬主</div>
+    <div class="card">
+      <div class="frow"><label>父</label><input type="text" id="nf-sire" placeholder="例: ディープインパクト"></div>
+      <div class="frow"><label>母</label><input type="text" id="nf-dam" placeholder="例: サクラブーケ"></div>
+      <div class="frow"><label>母父</label><input type="text" id="nf-dam-sire" placeholder="例: キングカメハメハ"></div>
+      <div class="frow"><label>馬主</label><input type="text" id="nf-owner" placeholder="例: 田中 一郎"></div>
+    </div>
+    <div class="sec">競走成績・体重・状態</div>
+    <div class="card">
+      <div class="frow"><label>戦績</label><input type="text" id="nf-record" placeholder="例: 5戦2勝（未出走の場合は空欄）"></div>
+      <div class="frow"><label>現在の馬体重 (kg) <span style="color:#C62828">*</span></label><input type="number" id="nf-weight" placeholder="例: 460"></div>
+      <div class="frow"><label>状態</label>
+        <select id="nf-status"><option value="ok">良好</option><option value="warn">要観察</option></select>
+      </div>
+      <div class="frow"><label>場所</label>
+        <select id="nf-location"><option value="stable">入厩</option><option value="pasture">放牧</option></select>
+      </div>
+    </div>
+    <button class="save-btn" onclick="saveNewHorse()">
+      <i class="ti ti-horse" style="font-size:15px;vertical-align:-2px"></i> 馬一覧に登録する
+    </button>
+    <div style="height:24px"></div>
+  `;
+}
+function saveNewHorse(){
+  const name=document.getElementById('nf-name').value.trim();
+  const weight=parseInt(document.getElementById('nf-weight').value);
+  if(!name){alert('馬名を入力してください');return;}
+  if(!weight){alert('馬体重を入力してください');return;}
+  const newId = Math.max(...horses.map(h=>h.id), ...retiredHorses.map(h=>h.id), 0)+1;
+  const newHorse = {
+    id:newId,
+    name, age:document.getElementById('nf-age').value||'不明',
+    sex:document.getElementById('nf-sex').value,
+    color:document.getElementById('nf-color').value,
+    sire:document.getElementById('nf-sire').value||'不明',
+    dam:document.getElementById('nf-dam').value||'不明',
+    dam_sire:document.getElementById('nf-dam-sire').value||'不明',
+    owner:document.getElementById('nf-owner').value||'未登録',
+    born:document.getElementById('nf-born').value||'不明',
+    weight:[weight,weight,weight,weight,weight,weight,weight],
+    record:document.getElementById('nf-record').value||'未出走',
+    status:document.getElementById('nf-status').value,
+    location:document.getElementById('nf-location').value,
+    retired:false
+  };
+  horses.push(newHorse);
+  trainingLogsMap[newId]=[];
+  photosMap[newId]=[{label:'初回写真'}];
+  reportsMap[newId]=[];
+  alert(`✅ ${name} を馬一覧に登録しました！`);
+  goTab('horses');
+}
+
+/* ===== 退厩馬 ===== */
+function renderRetiredList(c){
+  if(retiredHorses.length===0){
+    c.innerHTML=`<div class="sec">退厩馬</div><div class="card" style="text-align:center;padding:24px;color:#aaa"><i class="ti ti-door-exit" style="font-size:32px;display:block;margin-bottom:8px"></i>退厩馬はいません</div>`;
+    return;
+  }
+  c.innerHTML = `<div class="sec">退厩馬 ${retiredHorses.length}頭</div>` +
+    retiredHorses.map(h=>`<div class="card" style="cursor:pointer" onclick="retiredSelectedHorse=${h.id};render()">
+      <div style="display:flex;align-items:center;gap:10px">
+        ${horseIcon(h.color, 46)}
+        <div style="flex:1">
+          <div style="font-size:14px;font-weight:600;color:#546E7A">${h.name}</div>
+          <div style="font-size:11px;color:#aaa">${h.age} / ${h.sex} / ${h.record}</div>
+          <span class="badge retired" style="margin-top:3px">退厩</span>
+        </div>
+        <i class="ti ti-chevron-right" style="font-size:16px;color:#ccc"></i>
+      </div>
+    </div>`).join('');
+}
+function renderRetiredDetail(c){
+  const h = retiredHorses.find(x=>x.id===retiredSelectedHorse);
+  if(!h){retiredSelectedHorse=null;render();return;}
+  c.innerHTML = `
+    <button class="back" onclick="retiredSelectedHorse=null;render()"><i class="ti ti-arrow-left"></i>退厩馬一覧に戻る</button>
+    <div class="card">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px">
+        ${horseIconRound(h.color, 60)}
+        <div>
+          <div style="font-size:17px;font-weight:600;color:#546E7A">${h.name}</div>
+          <div style="font-size:11px;color:#aaa;margin-top:2px">${h.age} ${h.sex}</div>
+          <span class="badge retired" style="margin-top:4px">退厩</span>
+        </div>
+      </div>
+      <div class="irow"><span class="k">父</span><span class="v">${h.sire}</span></div>
+      <div class="irow"><span class="k">母</span><span class="v">${h.dam}</span></div>
+      <div class="irow"><span class="k">馬主</span><span class="v">${h.owner}</span></div>
+      <div class="irow"><span class="k">戦績</span><span class="v">${h.record}</span></div>
+    </div>
+    <div class="card">
+      <button onclick="restoreHorse(${h.id})" style="width:100%;padding:10px;background:none;border:1px solid #ddd;border-radius:8px;font-size:13px;color:#1a3a5c;cursor:pointer;font-family:inherit">
+        <i class="ti ti-arrow-back-up" style="font-size:14px;vertical-align:-2px"></i> 在厩馬に戻す
+      </button>
+    </div>
+  `;
+}
+function restoreHorse(id){
+  const h = retiredHorses.find(x=>x.id===id);
+  if(!h) return;
+  h.retired=false;
+  retiredHorses=retiredHorses.filter(x=>x.id!==id);
+  retiredSelectedHorse=null;
+  alert(`✅ ${h.name} を在厩馬に戻しました。`);
+  render();
+}
+
+/* ===== メンバー ===== */
+let members = [
+  {id:1, name:"高橋 宏征", role:"調教師"},
+  {id:2, name:"田中 一郎", role:"厩務員"},
+  {id:3, name:"鈴木 花子", role:"厩務員"},
+  {id:4, name:"佐藤 健二", role:"騎手"},
+  {id:5, name:"山田 美咲", role:"獣医師"},
+];
+let editingMemberId = null;
+
+function memberAv(name){
+  return name ? name.trim().charAt(0) : '？';
+}
+
+function renderMembers(c){
+  c.innerHTML = `<div class="sec">メンバー (${members.length}/10)</div>` +
+    members.map(m => {
+      if(editingMemberId === m.id){
+        return `<div class="card" style="margin-bottom:8px">
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
+            <div style="width:40px;height:40px;border-radius:50%;background:#E3F2FD;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;color:#1a3a5c;flex-shrink:0">${memberAv(m.name)}</div>
+            <div style="font-size:13px;font-weight:600;color:#1a3a5c">メンバー情報を編集</div>
+          </div>
+          <div class="frow"><label>名前</label><input id="m-name-${m.id}" value="${m.name}" style="font-size:14px;padding:8px 10px;border:1px solid #ddd;border-radius:8px;width:100%;font-family:inherit"></div>
+          <div class="frow"><label>役割</label>
+            <select id="m-role-${m.id}" style="font-size:14px;padding:8px 10px;border:1px solid #ddd;border-radius:8px;width:100%;font-family:inherit">
+              ${['調教師','厩務員','騎手','獣医師','馬主','その他'].map(r=>`<option ${m.role===r?'selected':''}>${r}</option>`).join('')}
+            </select>
+          </div>
+          <div style="display:flex;gap:8px;margin-top:4px">
+            <button onclick="saveMember(${m.id})" style="flex:1;padding:9px;background:#1a3a5c;color:#fff;border:none;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit">保存</button>
+            <button onclick="editingMemberId=null;render()" style="flex:1;padding:9px;background:none;border:1px solid #ddd;border-radius:8px;font-size:13px;cursor:pointer;font-family:inherit;color:#666">キャンセル</button>
+          </div>
+          <button onclick="deleteMember(${m.id})" style="width:100%;margin-top:8px;padding:9px;background:none;border:1px solid #C62828;border-radius:8px;font-size:13px;color:#C62828;cursor:pointer;font-family:inherit;font-weight:600">
+            <i class="ti ti-trash" style="font-size:13px;vertical-align:-1px"></i> このメンバーを削除
+          </button>
+        </div>`;
+      }
+      return `<div class="card" style="display:flex;align-items:center;gap:12px;margin-bottom:8px">
+        <div style="width:40px;height:40px;border-radius:50%;background:#E3F2FD;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;color:#1a3a5c;flex-shrink:0">${memberAv(m.name)}</div>
+        <div style="flex:1">
+          <div style="font-size:14px;font-weight:600;color:#111">${m.name}</div>
+          <div style="font-size:12px;color:#888">${m.role}</div>
+        </div>
+        <button onclick="editingMemberId=${m.id};render()" style="padding:6px 12px;background:none;border:1px solid #1a3a5c;border-radius:6px;font-size:12px;color:#1a3a5c;cursor:pointer;font-family:inherit;font-weight:600;flex-shrink:0">
+          <i class="ti ti-pencil" style="font-size:12px;vertical-align:-1px"></i> 編集
+        </button>
+      </div>`;
+    }).join('') +
+    `<button onclick="addMember()" style="width:100%;padding:11px;margin-top:4px;background:none;border:1px dashed #1a3a5c;border-radius:8px;color:#1a3a5c;cursor:pointer;font-size:13px;font-family:inherit;font-weight:600">
+      <i class="ti ti-user-plus" style="font-size:14px;vertical-align:-2px"></i> メンバーを追加
+    </button>
+    <button onclick="alert('招待コードをコピーしました！\nコード: TAKAHASHI-2024')" style="width:100%;padding:11px;margin-top:8px;background:none;border:1px dashed #ccc;border-radius:8px;color:#aaa;cursor:pointer;font-size:13px;font-family:inherit">
+      <i class="ti ti-key" style="font-size:14px;vertical-align:-2px"></i> 招待コードを発行
+    </button>`;
+}
+
+function saveMember(id){
+  const m = members.find(x=>x.id===id);
+  if(!m) return;
+  const nameEl = document.getElementById('m-name-'+id);
+  const roleEl = document.getElementById('m-role-'+id);
+  const newName = nameEl ? nameEl.value.trim() : '';
+  if(!newName){ alert('名前を入力してください'); return; }
+  m.name = newName;
+  m.role = roleEl ? roleEl.value : m.role;
+  editingMemberId = null;
+  render();
+}
+
+function deleteMember(id){
+  const m = members.find(x=>x.id===id);
+  if(!m) return;
+  if(!confirm(`「${m.name}」を削除しますか？`)) return;
+  members = members.filter(x=>x.id!==id);
+  editingMemberId = null;
+  render();
+}
+
+function addMember(){
+  if(members.length >= 10){ alert('メンバーは10人までです'); return; }
+  const newId = Math.max(...members.map(m=>m.id), 0) + 1;
+  members.push({id:newId, name:'新しいメンバー', role:'厩務員'});
+  editingMemberId = newId;
+  render();
+}
+
+render();
+</script>
+
+
+</body></html>
