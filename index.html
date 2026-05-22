@@ -87,7 +87,6 @@ body{font-family:'Hiragino Kaku Gothic ProN','Hiragino Sans','Noto Sans JP',sans
   </div>
   <div class="tabs" id="tabs">
     <button class="tab active" onclick="goTab('horses')" id="tab-horses"><span style="font-size:16px;display:block;margin-bottom:1px">🐴</span>馬一覧</button>
-    <button class="tab" onclick="goTab('daily')" id="tab-daily"><span style="font-size:16px;display:block;margin-bottom:1px">☀️</span>今日</button>
     <button class="tab" onclick="goTab('training')" id="tab-training"><span style="font-size:16px;display:block;margin-bottom:1px">🏃</span>調教</button>
     <button class="tab" onclick="goTab('feed')" id="tab-feed"><span style="font-size:16px;display:block;margin-bottom:1px">🌾</span>飼料</button>
     <button class="tab" onclick="goTab('photos')" id="tab-photos"><span style="font-size:16px;display:block;margin-bottom:1px">📷</span>写真</button>
@@ -250,10 +249,23 @@ function initApp(){
     setSyncBadge('✓ 同期済み');
     render();
   }).catch(function(e){
-    console.error(e);
-    setSyncBadge('⚠ エラー');
+    console.error('Firebaseエラー:', e);
+    setSyncBadge('⚠ オフライン(デモ)');
+    // Firebaseに接続できない場合はデフォルトデータで表示
+    horses = defaultHorses.map(function(h,i){ return Object.assign({id:'demo_'+i}, h); });
+    members = defaultMembers.map(function(m,i){ return Object.assign({id:'mem_'+i}, m); });
     render();
   });
+}
+
+// ===== ショートカット関数 =====
+function goFeed(hid){
+  feedHorseId = hid;
+  goTab('feed');
+}
+function goTraining(hid){
+  trHorseId = hid;
+  goTab('training');
 }
 
 // ===== タブ切り替え =====
@@ -273,8 +285,8 @@ function goTab(t){
 function render(){
   var c = document.getElementById('main-cnt');
   if(!c) return;
-  if(curTab==='horses'){ if(selHorse) renderDetail(c); else renderList(c); }
-  else if(curTab==='daily') renderDaily(c);
+  try {
+    if(curTab==='horses'){ if(selHorse) renderDetail(c); else renderList(c); }
   else if(curTab==='training') renderTraining(c);
   else if(curTab==='feed') renderFeed(c);
   else if(curTab==='photos') renderPhotos(c);
@@ -282,6 +294,10 @@ function render(){
   else if(curTab==='newreg') renderNewReg(c);
   else if(curTab==='retired'){ if(retiredSel) renderRetiredDetail(c); else renderRetiredList(c); }
   else if(curTab==='member') renderMembers(c);
+  } catch(e){
+    console.error('render error:', e);
+    c.innerHTML = '<div style="padding:20px;color:#C62828;font-size:13px"><strong>表示エラー:</strong><br>' + e.message + '</div>';
+  }
 }
 
 // ===== 馬一覧 =====
@@ -549,7 +565,7 @@ function renderDetail(c){
     // 最近の飼料記録
     +'<div class="sec">最近の飼料記録</div>'
     +'<div class="card">'+flHtml
-    +'<button style="width:100%;margin-top:8px;padding:9px;background:none;border:1px solid #ddd;border-radius:8px;font-size:12px;color:#1a3a5c;cursor:pointer;font-family:inherit" onclick="feedHorseId=''+h.id+'';goTab('feed')">すべての飼料記録を見る</button>'
+    +'<button style="width:100%;margin-top:8px;padding:9px;background:none;border:1px solid #ddd;border-radius:8px;font-size:12px;color:#1a3a5c;cursor:pointer;font-family:inherit" onclick="goFeed(\''+h.id+'\')">すべての飼料記録を見る</button>'
     +'</div>'
     // 報告事項
     +'<div class="sec">報告事項</div>'
@@ -1100,7 +1116,9 @@ function addMember(){
 }
 
 // ===== 起動 =====
-initApp();
+window.onload = function(){
+  initApp();
+};
 </script>
 </body>
 </html>
